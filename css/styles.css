@@ -150,3 +150,46 @@ footer .logo {
 address span {
   color: var(--primary-whyte-color);
 }
+
+/* ======   Portfolio style   ==================================== */
+
+/* Portfolio filter stile */
+.portfolio-filter {
+  list-style: none;
+}
+
+.link-filter {
+  color: var(--link-text-color);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.48px;
+  text-decoration: none;
+}
+.link-filter:hover,
+.link-filter:focus {
+  color: var(--primary-whyte-color);
+  background-color: var(--accent-color);
+}
+
+/* Portfolio images style */
+.portfolio-list {
+  list-style: none;
+}
+
+.portfolio-list figcaption {
+  color: var(--primary-text-color);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.9;
+  letter-spacing: 0.48px;
+}
+
+.portfolio-title {
+  color: var(--title-text-color);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 2;
+  letter-spacing: 1.08px;
+}
