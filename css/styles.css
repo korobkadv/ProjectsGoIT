@@ -28,6 +28,10 @@ body {
   color: var(--accent-color);
 }
 
+button[type="button"] {
+    cursor: pointer;
+}
+
 /* Logo style */
 .logo {
   font-family: Raleway, sans-serif;
