@@ -1,0 +1,152 @@
+:root {
+  --primary-text-color: #757575;
+  --title-text-color: #212121;
+  --link-text-color: #212121;
+  --accent-color: #2196f3;
+  --logo-text-color: #000;
+  --primary-whyte-color: #fff;
+  --secondery-bg-color: #2f303a;
+  --secondary-list-bg-color: #f5f4fa;
+  --footer-text-color: rgba(255, 255, 255, 0.6);
+}
+
+body {
+  background-color: var(--primary-whyte-color);
+  color: var(--primary-text-color);
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+}
+
+.link,
+.link:visited {
+  color: var(--link-text-color);
+  text-decoration: none;
+}
+
+.link:hover,
+.link:focus {
+  color: var(--accent-color);
+}
+
+/* Logo style */
+.logo {
+  font-family: Raleway, sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 0.78px;
+  text-decoration: none;
+  color: var(--logo-text-color);
+}
+
+.logo > span {
+  color: var(--accent-color);
+}
+
+/* Site-nav style */
+.site-nav {
+  list-style: none;
+}
+
+.site-nav .link {
+  font-family: Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.28px;
+}
+
+/* Hero style */
+.hero {
+  background-color: var(--secondery-bg-color);
+  text-align: center;
+}
+
+.hero-title {
+  color: var(--primary-whyte-color);
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1.4;
+  letter-spacing: 2.64px;
+  text-transform: uppercase;
+}
+
+.button {
+  border: 0;
+  border-radius: 4px;
+  background-color: var(--accent-color);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  color: var(--primary-whyte-color);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.9;
+  letter-spacing: 0.96px;
+}
+
+/* Contacts style */
+.contact {
+  color: var(--primary-text-color);
+}
+
+/* Section  style */
+.section-title {
+  color: var(--title-text-color);
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 1.08px;
+}
+
+/* Advantages style */
+.advantages-list {
+  list-style: none;
+}
+
+.advantages-titles {
+  color: var(--title-text-color);
+  font-weight: 700;
+  letter-spacing: 0.42px;
+  text-transform: uppercase;
+}
+
+/* To Do  style*/
+.todo-list {
+  list-style: none;
+}
+
+/* Team style */
+.team-list {
+  list-style: none;
+}
+
+.team-list figure {
+  text-align: center;
+}
+
+.team-list figcaption {
+  color: var(--primary-text-color);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0.48px;
+}
+
+.team-title {
+  color: var(--title-text-color);
+  font-weight: 500;
+  letter-spacing: 0.48px;
+}
+
+/* Footer style */
+footer {
+  background-color: var(--secondery-bg-color);
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.42px;
+}
+
+footer .logo {
+  color: var(--primary-whyte-color);
+}
+
+address span {
+  color: var(--primary-whyte-color);
+}
