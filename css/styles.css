@@ -114,11 +114,11 @@ button[type="button"] {
 
 /* Team style */
 
-.team-list figure {
+.team-list li {
   text-align: center;
 }
 
-.team-list figcaption {
+.team-list li {
   color: var(--primary-text-color);
   text-align: center;
   font-size: 16px;
@@ -171,7 +171,7 @@ address span {
 
 /* Portfolio images style */
 
-.portfolio-list figcaption {
+.portfolio-list li {
   color: var(--primary-text-color);
   font-size: 16px;
   font-weight: 400;
