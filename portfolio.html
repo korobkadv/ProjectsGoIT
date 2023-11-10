@@ -4,38 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WebStudio</title>
-    <link rel="stylesheet" href="./css/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&family=Roboto:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
     <header class="page-header">
       <nav>
-        <a href="/index.html" lang="en" class="logo link"
-          ><span>Web</span>Studio</a
-        >
-
+        <a href="/index.html" lang="en" class="logo link">
+          <span>Web</span>Studio
+        </a>
         <ul class="list list site-nav">
           <li><a href="./index.html" class="link">Студія</a></li>
           <li><a href="./portfolio.html" class="link">Портфоліо</a></li>
           <li><a href="" class="link">Контакти</a></li>
         </ul>
-
-        <a href="mailto:info@devstudio.com" class="contact link"
-          >info@devstudio.com</a
-        >
-        <a href="tel:+380961111111" class="contact link">+38 096 111 11 11</a>
+        <ul class="list">
+          <li>
+            <a href="mailto:info@devstudio.com" class="contact link">
+              info@devstudio.com
+            </a>
+          </li>
+          <li>
+            <a href="tel:+380961111111" class="contact link">
+              +38 096 111 11 11
+            </a>
+          </li>
+        </ul>
       </nav>
     </header>
 
     <main>
       <section class="section">
         <h2 class="section-title">Портфоліо</h2>
-
         <ul class="list portfolio-filter">
           <li><button type="button" class="button-filter">Усі</button></li>
           <li>
@@ -47,119 +52,96 @@
             <button type="button" class="button-filter">Маркетинг</button>
           </li>
         </ul>
-
         <ul class="list portfolio-list">
           <li>
-            <figure>
-              <img
-                src="./image/portfolio/tehnokriak.jpg"
-                alt="Технокряк"
-                width="370"
-                height="294"
-              />
-              <figcaption>
-                <h3 class="portfolio-title">Технокряк</h3>
-                Веб-сайт
-              </figcaption>
-            </figure>
-            <figure>
-              <img
-                src="./image/portfolio/neworlean.jpg"
-                alt="Постер New Orlean vs Golden Star"
-                width="370"
-                height="294"
-              />
-              <figcaption>
-                <h3 class="portfolio-title">
-                  Постер New Orlean vs Golden Star
-                </h3>
-                Дизайн
-              </figcaption>
-            </figure>
-            <figure>
-              <img
-                src="./image/portfolio/seafood.jpg"
-                alt="Ресторан Seafood"
-                width="370"
-                height="294"
-              />
-              <figcaption>
-                <h3 class="portfolio-title">Ресторан Seafood</h3>
-                Додаток
-              </figcaption>
-            </figure>
-            <figure>
-              <img
-                src="./image/portfolio/prime.jpg"
-                alt="Проєкт Prime"
-                width="370"
-                height="294"
-              />
-              <figcaption>
-                <h3 class="portfolio-title">Проєкт Prime</h3>
-                Маркетинг
-              </figcaption>
-            </figure>
-            <figure>
-              <img
-                src="./image/portfolio/boxes.jpg"
-                alt="Проєкт Boxes"
-                width="370"
-                height="294"
-              />
-              <figcaption>
-                <h3 class="portfolio-title">Проєкт Boxes</h3>
-                Додаток
-              </figcaption>
-            </figure>
-            <figure>
-              <img
-                src="./image/portfolio/inspironhasnoborders.jpg"
-                alt="Inspiration has no Borders"
-                width="370"
-                height="294"
-              />
-              <figcaption>
-                <h3 class="portfolio-title">Inspiration has no Borders</h3>
-                Веб-сайт
-              </figcaption>
-            </figure>
-            <figure>
-              <img
-                src="./image/portfolio/limitededition.jpg"
-                alt="Видання Limited Edition"
-                width="370"
-                height="294"
-              />
-              <figcaption>
-                <h3 class="portfolio-title">Видання Limited Edition</h3>
-                Дизайн
-              </figcaption>
-            </figure>
-            <figure>
-              <img
-                src="./image/portfolio/lab.jpg"
-                alt="Проєкт LAB"
-                width="370"
-                height="294"
-              />
-              <figcaption>
-                <h3 class="portfolio-title">Проєкт LAB</h3>
-                Маркетинг
-              </figcaption>
-            </figure>
-            <figure>
-              <img
-                src="./image/portfolio/business.jpg"
-                alt="Growing Business"
-                width="370"
-                height="294"
-              />
-              <figcaption>
-                <h3 class="portfolio-title">Growing Business</h3>
-                Додаток
-              </figcaption>
-            </figure>
+            <img
+              src="./image/portfolio/tehnokriak.jpg"
+              alt="Технокряк"
+              width="370"
+              height="294"
+            />
+            <h3 class="portfolio-title">Технокряк</h3>
+            <p>Веб-сайт</p>
+          </li>
+          <li>
+            <img
+              src="./image/portfolio/neworlean.jpg"
+              alt="Постер New Orlean vs Golden Star"
+              width="370"
+              height="294"
+            />
+            <h3 class="portfolio-title">Постер New Orlean vs Golden Star</h3>
+            <p>Дизайн</p>
+          </li>
+          <li>
+            <img
+              src="./image/portfolio/seafood.jpg"
+              alt="Ресторан Seafood"
+              width="370"
+              height="294"
+            />
+            <h3 class="portfolio-title">Ресторан Seafood</h3>
+            <p>Додаток</p>
+          </li>
+          <li>
+            <img
+              src="./image/portfolio/prime.jpg"
+              alt="Проєкт Prime"
+              width="370"
+              height="294"
+            />
+            <h3 class="portfolio-title">Проєкт Prime</h3>
+            <p>Маркетинг</p>
+          </li>
+          <li>
+            <img
+              src="./image/portfolio/boxes.jpg"
+              alt="Проєкт Boxes"
+              width="370"
+              height="294"
+            />
+            <h3 class="portfolio-title">Проєкт Boxes</h3>
+            <p>Додаток</p>
+          </li>
+          <li>
+            <img
+              src="./image/portfolio/inspironhasnoborders.jpg"
+              alt="Inspiration has no Borders"
+              width="370"
+              height="294"
+            />
+            <h3 class="portfolio-title">Inspiration has no Borders</h3>
+            <p>Веб-сайт</p>
+          </li>
+          <li>
+            <img
+              src="./image/portfolio/limitededition.jpg"
+              alt="Видання Limited Edition"
+              width="370"
+              height="294"
+            />
+            <h3 class="portfolio-title">Видання Limited Edition</h3>
+            <p>Дизайн</p>
+          </li>
+          <li>
+            <img
+              src="./image/portfolio/lab.jpg"
+              alt="Проєкт LAB"
+              width="370"
+              height="294"
+            />
+            <h3 class="portfolio-title">Проєкт LAB</h3>
+            <p>Маркетинг</p>
+          </li>
+          <li>
+            <img
+              src="./image/portfolio/business.jpg"
+              alt="Growing Business"
+              width="370"
+              height="294"
+            />
+            <h3 class="portfolio-title">Growing Business</h3>
+            <p>Додаток</p>
           </li>
         </ul>
       </section>
