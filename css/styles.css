@@ -10,6 +10,10 @@
   --footer-text-color: rgba(255, 255, 255, 0.6);
 }
 
+html {
+  box-sizing: border-box;
+}
+
 body {
   background-color: var(--primary-whyte-color);
   color: var(--primary-text-color);
@@ -28,8 +32,12 @@ body {
   color: var(--accent-color);
 }
 
+.list {
+  list-style: none;
+}
+
 button[type="button"] {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* Logo style */
@@ -47,9 +55,6 @@ button[type="button"] {
 }
 
 /* Site-nav style */
-.site-nav {
-  list-style: none;
-}
 
 .site-nav .link {
   font-family: Roboto, sans-serif;
@@ -101,9 +106,6 @@ button[type="button"] {
 }
 
 /* Advantages style */
-.advantages-list {
-  list-style: none;
-}
 
 .advantages-titles {
   color: var(--title-text-color);
@@ -113,14 +115,8 @@ button[type="button"] {
 }
 
 /* To Do  style*/
-.todo-list {
-  list-style: none;
-}
 
 /* Team style */
-.team-list {
-  list-style: none;
-}
 
 .team-list figure {
   text-align: center;
@@ -159,9 +155,6 @@ address span {
 /* ======   Portfolio style   ==================================== */
 
 /* Portfolio filter stile */
-.portfolio-filter {
-  list-style: none;
-}
 
 .button-filter {
   color: var(--link-text-color);
@@ -181,9 +174,6 @@ address span {
 }
 
 /* Portfolio images style */
-.portfolio-list {
-  list-style: none;
-}
 
 .portfolio-list figcaption {
   color: var(--primary-text-color);
