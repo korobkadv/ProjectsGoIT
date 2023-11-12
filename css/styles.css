@@ -93,6 +93,11 @@ button[type="button"] {
 
 /* Contacts style */
 .contact {
+  color: var(--primary-text-color);
+  font-weight: 500;
+}
+
+.contact-footer {
   color: var(--footer-text-color);
   font-weight: 500;
 }
