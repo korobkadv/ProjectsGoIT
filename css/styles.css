@@ -17,6 +17,15 @@ body {
   font-size: 14px;
 }
 
+.container {
+  margin-left: auto;
+  margin-right: auto;
+
+  width: 1170px;
+
+  outline: 1px red;
+}
+
 .link,
 .link:visited {
   color: var(--link-text-color);
@@ -32,8 +41,11 @@ body {
   list-style: none;
 }
 
-button[type="button"] {
+.button {
   cursor: pointer;
+  border: 1px solid transparent;
+  text-decoration: none;
+  text-align: center;
 }
 
 .link.active {
@@ -78,12 +90,15 @@ button[type="button"] {
   text-transform: uppercase;
 }
 
-.button {
-  border: 0;
+.button-hero {
   border-radius: 4px;
+  padding: 10px 24px;
+  min-width: 200px;
+
   background-color: var(--accent-color);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
   color: var(--primary-whyte-color);
+
   font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: 700;
@@ -184,7 +199,6 @@ address span {
 }
 
 /* Portfolio images style */
-
 .portfolio-list li {
   color: var(--primary-text-color);
   font-size: 16px;

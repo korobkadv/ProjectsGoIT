@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WebStudio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,34 +18,38 @@
   </head>
   <body>
     <header class="page-header">
-      <nav>
-        <a href="/index.html" lang="en" class="logo link">
-          <span>Web</span>Studio
-        </a>
-        <ul class="list site-nav">
-          <li><a href="./index.html" class="link active">Студія</a></li>
-          <li><a href="./portfolio.html" class="link">Портфоліо</a></li>
-          <li><a href="" class="link">Контакти</a></li>
-        </ul>
-        <ul class="list">
-          <li>
-            <a href="mailto:info@devstudio.com" class="contact link">
-              info@devstudio.com
-            </a>
-          </li>
-          <li>
-            <a href="tel:+380961111111" class="contact link">
-              +38 096 111 11 11
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <div class="container">
+        <nav>
+          <a href="/index.html" lang="en" class="logo link">
+            <span>Web</span>Studio
+          </a>
+          <ul class="list site-nav">
+            <li><a href="./index.html" class="link active">Студія</a></li>
+            <li><a href="./portfolio.html" class="link">Портфоліо</a></li>
+            <li><a href="" class="link">Контакти</a></li>
+          </ul>
+          <ul class="list">
+            <li>
+              <a href="mailto:info@devstudio.com" class="contact link">
+                info@devstudio.com
+              </a>
+            </li>
+            <li>
+              <a href="tel:+380961111111" class="contact link">
+                +38 096 111 11 11
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
       <section class="hero">
         <h1 class="hero-title">Ефективні рішення для вашого бізнесу</h1>
-        <button type="button" class="button">Замовити послугу</button>
+        <button type="button" class="button button-hero">
+          Замовити послугу
+        </button>
       </section>
 
       <section class="section">
