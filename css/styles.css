@@ -182,8 +182,12 @@ address span {
   background-color: var(--accent-color);
 }
 
-/* Portfolio images style */
+.button-filter.active {
+  background-color: var(--accent-color);
+  color: var(--primary-whyte-color);
+}
 
+/* Portfolio images style */
 .portfolio-list li {
   color: var(--primary-text-color);
   font-size: 16px;
