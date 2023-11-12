@@ -21,6 +21,7 @@ body {
 .link:visited {
   color: var(--link-text-color);
   text-decoration: none;
+  font-style: normal;
 }
 
 .link:hover,
