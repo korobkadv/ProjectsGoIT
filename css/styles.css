@@ -43,6 +43,7 @@ h1, h2, h3, h4, p {
 .link:visited {
   color: var(--link-text-color);
   text-decoration: none;
+  font-style: normal;
 }
 
 .link:hover,
@@ -141,8 +142,6 @@ h1, h2, h3, h4, p {
 /* Hero style */
 .hero {
   width: 100%;
-  height: 600px;
-  margin-bottom: 94px;
 
   background-color: var(--secondery-bg-color);
 
@@ -155,6 +154,9 @@ h1, h2, h3, h4, p {
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  padding-top: 200px;
+  padding-bottom: 200px;
 }
 
 .hero-title {
@@ -188,6 +190,8 @@ h1, h2, h3, h4, p {
 
 /* Section  style */
 .section-title {
+  margin-bottom: 50px;
+
   color: var(--title-text-color);
   text-align: center;
   font-size: 36px;
@@ -196,9 +200,19 @@ h1, h2, h3, h4, p {
 }
 
 /* Advantages style */
+.advantages-section .container {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
 .advantages-list {
   display: flex;
-  margin-bottom: 94px;
+  justify-content: center;
+  gap: 30px;
+}
+
+.advantages-list li {
+  flex-basis: calc((100% - 90px) / 4);
 }
 
 .advantages-titles {
@@ -211,14 +225,44 @@ h1, h2, h3, h4, p {
   text-transform: uppercase;
 }
 
+.advantages-paragraph {
+  line-height: 1.7;
+  letter-spacing: 0.42px;
+}
+
 /* To Do  style*/
+.todo-section .container {
+  padding-bottom: 94px;
+}
+
+.todo-list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.todo-list li { 
+  flex-basis: calc((100% - 60px) / 3);
+}
 
 /* Team style */
 .team-section {
   background-color: var(--secondary-list-bg-color);
 }
 
+.team-section .container {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
+.team-list {
+  display: flex;
+  gap: 30px;
+}
+
 .team-list .team-item {
+  flex-basis: calc((100% - 90px) / 4);
+
   color: var(--primary-text-color);
   text-align: center;
   font-size: 16px;
@@ -241,6 +285,11 @@ footer {
   letter-spacing: 0.42px;
 }
 
+footer .container {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
 footer .logo {
   color: var(--primary-whyte-color);
 }
@@ -250,7 +299,7 @@ footer .logo {
   font-weight: 500;
 }
 
-address span {
+address {
   font-style: normal;
   color: var(--primary-whyte-color);
 }
