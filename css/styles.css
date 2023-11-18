@@ -78,7 +78,7 @@ img {
   color: var(--accent-color);
   position: relative;
 }
-.link.active::after {
+/* .link.active::after {
   content: "";
   position: absolute;
   left: 0px;
@@ -91,7 +91,7 @@ img {
   border-radius: 4px;
 
   background-color: var(--accent-color);
-}
+} */
 
 .list {
   list-style: none;
