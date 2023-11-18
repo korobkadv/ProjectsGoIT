@@ -259,7 +259,6 @@ img {
 }
 
 /* Modal window style */
-
 .backdrop {
   position: fixed;
   top: 0;
@@ -280,8 +279,8 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 328px;;
-  height: 381px;
+  width: 528px;;
+  height: 581px;
 
   border-radius: 4px;
   background-color: var(--primary-whyte-color);
