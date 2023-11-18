@@ -3,10 +3,14 @@
   --title-text-color: #212121;
   --link-text-color: #212121;
   --accent-color: #2196f3;
+  --accent-color-rgba: rgba(33, 150, 243, 0.90);
   --logo-text-color: #000;
   --primary-whyte-color: #fff;
   --secondery-bg-color: #2f303a;
   --secondary-list-bg-color: #f5f4fa;
+  --modal-backdrop-color: rgba(0, 0, 0, 0.20);
+  --todo-h3-background-color: rgba(47, 48, 58, 0.80);
+
   --footer-text-color: rgba(255, 255, 255, 0.6);
   --footer-social-color: rgba(255, 255, 255, 0.10);
 
@@ -61,6 +65,8 @@ img {
   color: var(--link-text-color);
   text-decoration: none;
   font-style: normal;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .link:hover,
@@ -70,6 +76,21 @@ img {
 
 .link.active {
   color: var(--accent-color);
+  position: relative;
+}
+.link.active::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+
+  display: block;
+  width: 100%;
+  height: 4px;
+
+  border-radius: 4px;
+
+  background-color: var(--accent-color);
 }
 
 .list {
@@ -237,6 +258,59 @@ img {
   letter-spacing: 0.96px;
 }
 
+/* Modal window style */
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--modal-backdrop-color);
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 328px;;
+  height: 381px;
+
+  border-radius: 4px;
+  background-color: var(--primary-whyte-color);
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.20), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+.modal .close-modal {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+
+  width: 30px;
+  height: 30px;
+
+  background-color: var(--primary-whyte-color);
+  border: 1px solid #757575;
+  border-radius: 50%;
+  
+}
+
+.closse-button {
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+
+  fill: var(--logo-text-color);
+}
+
+
 /* Section  style */
 .section {
   padding-top: 94px;
@@ -303,6 +377,31 @@ img {
 
 .todo-list li { 
   flex-basis: calc((100% - 60px) / 3);
+
+  position: relative;
+}
+
+.todo-h3 {
+  padding-top: 27px;
+  padding-bottom: 27px;
+
+  background-color: var(--todo-h3-background-color);
+  color: var(--primary-whyte-color);
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.42px;
+  text-transform: uppercase;
+
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+
+  text-align: center;
+
+  width: 100%;
 }
 
 /* Team style */
@@ -370,6 +469,9 @@ img {
   border-radius: 50%;
 
   color: var(--social-icon-color);
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover, 
@@ -405,6 +507,9 @@ img {
 
   border: 1px solid var(--social-icon-color);
   border-radius: 4px;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .clients-link:hover,
 .clients-link:focus {
@@ -445,6 +550,10 @@ footer .logo {
   display: inline-block;
   margin-bottom: 28px;
   line-height: normal;
+  color: var(--primary-whyte-color);
+}
+footer .logo:hover,
+footer .logo:focus {
   color: var(--primary-whyte-color);
 }
 
@@ -537,6 +646,10 @@ address > span {
   font-weight: 500;
   line-height: 1.6;
   letter-spacing: 0.48px;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-filter:hover,
@@ -571,11 +684,51 @@ address > span {
 
 .portfolio-link {
   display: block;
+
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-link:hover,
 .portfolio-link:focus {
   box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.16), 0px 4px 4px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
 }
+
+.portfolio-link .box {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-link .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-color-rgba);
+
+  transform: translatey(100%);
+  transition: transform 250ms ease-in-out;
+
+  padding-top: 63px;
+  padding-right: 24px;
+  padding-bottom: 63px;
+  padding-left: 24px;
+}
+
+.portfolio-link:hover .overlay {
+  transform: translatey(0);
+}
+
+.portfolio-link .overlay p {
+  color: var(--primary-whyte-color);
+
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.54px;
+}
+
+
 
 .portfolio-description {
   padding: 20px 24px 20px 24px;
@@ -601,3 +754,4 @@ address > span {
   line-height: 1.9;
   letter-spacing: 0.48px;
 }
+
