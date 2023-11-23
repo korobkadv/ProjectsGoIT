@@ -7,3 +7,4 @@
 4. https://github.com/korobkadv/ProjectsGoIT/tree/goit-markup-hw-04
 5. https://github.com/korobkadv/ProjectsGoIT/tree/goit-markup-hw-05
 6. https://github.com/korobkadv/ProjectsGoIT/tree/goit-markup-hw-06
+7. https://github.com/korobkadv/ProjectsGoIT/tree/goit-markup-hw-07
