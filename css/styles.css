@@ -333,15 +333,14 @@ img {
   fill: var(--logo-text-color);
 
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  pointer-events: none;
 }
 
-.closse-button:hover,
-.closse-button:focus {
-  fill: var(--accent-color);
-}
-
+.close-modal:hover .closse-button,
 .close-modal:focus .closse-button {
   fill: var(--accent-color);
+  color: var(--accent-color);
 }
 
 /* Modal form style */
