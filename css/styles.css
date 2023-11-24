@@ -789,14 +789,14 @@ img {
   margin-right: 0px;
 }
 
-.logo--footer {
+.logo--footer-color {
   display: inline-block;
   margin-bottom: 28px;
   line-height: normal;
   color: var(--primary-whyte-color);
 }
-.logo--footer:hover,
-.logo--footer:focus {
+.logo--footer-color:hover,
+.logo--footer-color:focus {
   color: var(--primary-whyte-color);
 }
 
