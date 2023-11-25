@@ -1,0 +1,39 @@
+/* 
+========================
+   To-do section
+========================
+*/
+.todo__list {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.todo__item {
+  flex-basis: calc((100% - 60px) / 3);
+
+  position: relative;
+}
+
+.todo__card-title {
+  padding-top: 27px;
+  padding-bottom: 27px;
+
+  background-color: var(--todo-bg-card-title);
+  color: var(--primary-whyte-color);
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.42px;
+  text-transform: uppercase;
+
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+
+  text-align: center;
+
+  width: 100%;
+}

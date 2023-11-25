@@ -1,0 +1,46 @@
+/* 
+========================
+    social btn
+========================
+*/
+.social {
+  display: flex;
+  gap: 10px;
+}
+
+.social__item {
+  flex-basis: calc((100% - 30px) / 4);
+}
+
+.social__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+
+  color: var(--icon-gray-color);
+
+  transition: background-color var(--cubic-bezier-250),
+    color var(--cubic-bezier-250);
+
+  outline: none;
+
+  &:hover,
+  &:focus {
+    background-color: var(--accent-color);
+
+    color: var(--primary-whyte-color);
+  }
+
+  &--gray-bg {
+    background-color: var(--footer-social-bg-color);
+  }
+}
+
+.social__icon {
+  fill: currentColor;
+}

@@ -1,0 +1,21 @@
+body {
+  background-color: var(--primary-whyte-color);
+  color: var(--primary-text-color);
+  font-family: var(--main-font);
+  font-size: var(--main-font-size);
+}
+
+.section {
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
+.section-title {
+  margin-bottom: 50px;
+
+  color: var(--secondary-text-color);
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 1.08px;
+}

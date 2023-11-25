@@ -1,0 +1,23 @@
+.button {
+  cursor: pointer;
+  min-width: 200px;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  background-color: var(--accent-color);
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  color: var(--primary-whyte-color);
+  text-decoration: none;
+  text-align: center;
+
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.9;
+  letter-spacing: 0.96px;
+}
