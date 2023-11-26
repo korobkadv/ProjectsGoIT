@@ -451,6 +451,7 @@ img {
 }
 .social__link--gray-bg {
   background-color: var(--footer-social-bg-color);
+  color: var(--primary-whyte-color);
 }
 
 .social__icon {
