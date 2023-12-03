@@ -21,9 +21,92 @@
     <header class="header">
       <div class="container header__container">
         <nav class="navigation">
+          <!-- Лого сайта -->
           <a href="./index.html" lang="en" class="logo link">
             <span class="logo__blue-text">Web</span>Studio
           </a>
+          <!-- Меню для мобільних пристроїв -->
+          <div class="mobile-menu-group">
+            <button class="navigation__mobile-menu-btn" data-menu-button>
+              <svg
+                class="navigation__mobile-menu-icon"
+                width="40"
+                height="40"
+                aria-expanded="false"
+                aria-label="Перемикач мобільного меню"
+              >
+                <use
+                  class="navigation__cross-icon"
+                  href="./image/icon.svg#close-menu"
+                ></use>
+                <use
+                  class="navigation__menu-icon"
+                  href="./image/icon.svg#modile-menu"
+                ></use>
+              </svg>
+            </button>
+
+            <div class="mobile-menu" data-menu>
+              <!-- Посилання на інщі сторінки -->
+              <ul class="list mobile-menu__list">
+                <li class="mobile-menu__item">
+                  <a href="./index.html" class="link mobile-menu__link"
+                    >Студія</a
+                  >
+                </li>
+                <li class="mobile-menu__item">
+                  <a href="./portfolio.html" class="link mobile-menu__link"
+                    >Портфоліо</a
+                  >
+                </li>
+                <li class="mobile-menu__item">
+                  <a href="" class="link mobile-menu__link">Контакти</a>
+                </li>
+              </ul>
+              <!-- Посилання на контакти -->
+              <div class="mobile-menu__contacts-group">
+                <ul class="list mobile-menu__contacts">
+                  <li class="mobile-menu__item">
+                    <a
+                      href="tel:+380961111111"
+                      class="link mobile-menu__link mobile-menu__contact mobile-menu__contact--blue-color"
+                    >
+                      +38 096 111 11 11
+                    </a>
+                  </li>
+                  <li class="mobile-menu__item">
+                    <a
+                      href="mailto:info@devstudio.com"
+                      class="link mobile-menu__link mobile-menu__contact"
+                    >
+                      info@devstudio.com
+                    </a>
+                  </li>
+                </ul>
+                <ul class="list mobile-menu__social">
+                  <li class="mobile-menu__social-item">
+                    <a href="" class="link mobile-menu__social-link"
+                      >Instagram</a
+                    >
+                  </li>
+                  <li class="mobile-menu__social-item">
+                    <a href="" class="link mobile-menu__social-link">Twitter</a>
+                  </li>
+                  <li class="mobile-menu__social-item">
+                    <a href="" class="link mobile-menu__social-link"
+                      >Facebook</a
+                    >
+                  </li>
+                  <li class="mobile-menu__social-item">
+                    <a href="" class="link mobile-menu__social-link"
+                      >LinkedIn</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
           <!-- Посилання на інщі сторінки -->
           <ul class="list navigation-list">
             <li class="navigation-item">
@@ -80,7 +163,7 @@
           <div class="modal-wrapper">
             <button class="button modal-close-btn" data-modal-close>
               <svg class="modal-close-btn__icon" width="18" height="18">
-                <use href="./image/icon.svg#circle"></use>
+                <use href="./image/icon.svg#close"></use>
               </svg>
             </button>
 
@@ -164,7 +247,7 @@
           </div>
         </div>
       </section>
-      <!-- Наші переваги -->
+      <!-- Секція Наші переваги -->
       <section class="section advantages">
         <div class="container advantages__container">
           <h2 class="section-title visually-hidden">Наші переваги</h2>
@@ -220,7 +303,7 @@
           </ul>
         </div>
       </section>
-      <!-- Чим ми займаємося -->
+      <!-- Секція Чим ми займаємося -->
       <section class="section todo">
         <div class="container todo__container">
           <h2 class="section-title">Чим ми займаємося</h2>
@@ -256,20 +339,74 @@
           </ul>
         </div>
       </section>
-      <!-- Наша команда -->
+      <!-- Секція Наша команда -->
       <section class="section team">
         <div class="container team__container">
           <h2 class="section-title">Наша команда</h2>
 
           <ul class="list team__list">
             <li class="team__item">
-              <img
-                src="./image/team1.jpg"
-                alt="team member 1"
-                width="270"
-                height="260"
-                class="team__images"
-              />
+              <picture>
+                <!-- Зображення для десктопа -->
+                <source
+                  srcset="
+                    ./image/team/team1_desctop@WebP.webp   1x,
+                    ./image/team/team1_desctop@2xWebP.webp 2x
+                  "
+                  media="(min-width: 1200px)"
+                  type="image/webp"
+                />
+                <source
+                  srcset="
+                    ./image/team/team1_desctop.jpg    1x,
+                    ./image/team/team1_desctop@2x.jpg 2x
+                  "
+                  media="(min-width: 1200px)"
+                  type="image/jpg"
+                />
+                <!-- Зображення для планшета -->
+                <source
+                  srcset="
+                    ./image/team/team1_tablet@WebP.webp   1x,
+                    ./image/team/team1_tablet@2xWebP.webp 2x
+                  "
+                  media="(min-width: 768px)"
+                  type="image/webp"
+                />
+                <source
+                  srcset="
+                    ./image/team/team1_tablet.jpg    1x,
+                    ./image/team/team1_tablet@2x.jpg 2x
+                  "
+                  media="(min-width: 768px)"
+                  type="image/jpg"
+                />
+                <!-- Мобільне зображення -->
+                <source
+                  srcset="
+                    ./image/team/team1_mobile@WebP.webp   1x,
+                    ./image/team/team1_mobile@2xWebP.webp 2x
+                  "
+                  media="(max-width: 767px)"
+                  type="image/webp"
+                />
+                <source
+                  srcset="
+                    ./image/team/team1_mobile.jpg    1x,
+                    ./image/team/team1_mobile@2x.jpg 2x
+                  "
+                  media="(max-width: 767px)"
+                  type="image/jpg"
+                />
+                <!-- Основне зображення -->
+                <img
+                  src="./image/team/team1_mobile.jpg"
+                  alt="team member 1"
+                  width="450"
+                  height="460"
+                  class="team__images"
+                />
+              </picture>
               <div class="team__description-group">
                 <h3 class="team__card-title">Ігор Дем'яненко</h3>
                 <p class="team__card-paragraph">Product Designer</p>
@@ -307,13 +444,67 @@
               </div>
             </li>
             <li class="team__item">
-              <img
-                src="./image/team2.jpg"
-                alt="team member 2"
-                width="270"
-                height="260"
-                class="team__images"
-              />
+              <picture>
+                <!-- Зображення для десктопа -->
+                <source
+                  srcset="
+                    ./image/team/team2_desctop@WebP.webp   1x,
+                    ./image/team/team2_desctop@2xWebP.webp 2x
+                  "
+                  media="(min-width: 1200px)"
+                  type="image/webp"
+                />
+                <source
+                  srcset="
+                    ./image/team/team2_desctop.jpg    1x,
+                    ./image/team/team2_desctop@2x.jpg 2x
+                  "
+                  media="(min-width: 1200px)"
+                  type="image/jpg"
+                />
+                <!-- Зображення для планшета -->
+                <source
+                  srcset="
+                    ./image/team/team2_tablet@WebP.webp   1x,
+                    ./image/team/team2_tablet@2xWebP.webp 2x
+                  "
+                  media="(min-width: 768px)"
+                  type="image/webp"
+                />
+                <source
+                  srcset="
+                    ./image/team/team2_tablet.jpg    1x,
+                    ./image/team/team2_tablet@2x.jpg 2x
+                  "
+                  media="(min-width: 768px)"
+                  type="image/jpg"
+                />
+                <!-- Мобільне зображення -->
+                <source
+                  srcset="
+                    ./image/team/team2_mobile@WebP.webp   1x,
+                    ./image/team/team2_mobile@2xWebP.webp 2x
+                  "
+                  media="(max-width: 767px)"
+                  type="image/webp"
+                />
+                <source
+                  srcset="
+                    ./image/team/team2_mobile.jpg    1x,
+                    ./image/team/team2_mobile@2x.jpg 2x
+                  "
+                  media="(max-width: 767px)"
+                  type="image/jpg"
+                />
+                <!-- Основне зображення -->
+                <img
+                  src="./image/team/team2_mobile.jpg"
+                  alt="team member 2"
+                  width="450"
+                  height="460"
+                  class="team__images"
+                />
+              </picture>
               <div class="team__description-group">
                 <h3 class="team__card-title">Ольга Рєпіна</h3>
                 <p class="team__card-paragraph">Frontend Developer</p>
@@ -352,13 +543,67 @@
               </div>
             </li>
             <li class="team__item">
-              <img
-                src="./image/team3.jpg"
-                alt="team member 3"
-                width="270"
-                height="260"
-                class="team__images"
-              />
+              <picture>
+                <!-- Зображення для десктопа -->
+                <source
+                  srcset="
+                    ./image/team/team3_desctop@WebP.webp   1x,
+                    ./image/team/team3_desctop@2xWebP.webp 2x
+                  "
+                  media="(min-width: 1200px)"
+                  type="image/webp"
+                />
+                <source
+                  srcset="
+                    ./image/team/team3_desctop.jpg    1x,
+                    ./image/team/team3_desctop@2x.jpg 2x
+                  "
+                  media="(min-width: 1200px)"
+                  type="image/jpg"
+                />
+                <!-- Зображення для планшета -->
+                <source
+                  srcset="
+                    ./image/team/team3_tablet@WebP.webp   1x,
+                    ./image/team/team3_tablet@2xWebP.webp 2x
+                  "
+                  media="(min-width: 768px)"
+                  type="image/webp"
+                />
+                <source
+                  srcset="
+                    ./image/team/team3_tablet.jpg    1x,
+                    ./image/team/team3_tablet@2x.jpg 2x
+                  "
+                  media="(min-width: 768px)"
+                  type="image/jpg"
+                />
+                <!-- Мобільне зображення -->
+                <source
+                  srcset="
+                    ./image/team/team3_mobile@WebP.webp   1x,
+                    ./image/team/team3_mobile@2xWebP.webp 2x
+                  "
+                  media="(max-width: 767px)"
+                  type="image/webp"
+                />
+                <source
+                  srcset="
+                    ./image/team/team3_mobile.jpg    1x,
+                    ./image/team/team3_mobile@2x.jpg 2x
+                  "
+                  media="(max-width: 767px)"
+                  type="image/jpg"
+                />
+                <!-- Основне зображення -->
+                <img
+                  src="./image/team/team4_mobile.jpg"
+                  alt="team member 3"
+                  width="450"
+                  height="460"
+                  class="team__images"
+                />
+              </picture>
               <div class="team__description-group">
                 <h3 class="team__card-title">Микола Тарасов</h3>
                 <p class="team__card-paragraph">Marketing</p>
@@ -396,13 +641,67 @@
               </div>
             </li>
             <li class="team__item">
-              <img
-                src="./image/team4.jpg"
-                alt="team member 4"
-                width="270"
-                height="260"
-                class="team__images"
-              />
+              <picture>
+                <!-- Зображення для десктопа -->
+                <source
+                  srcset="
+                    ./image/team/team4_desctop@WebP.webp   1x,
+                    ./image/team/team4_desctop@2xWebP.webp 2x
+                  "
+                  media="(min-width: 1200px)"
+                  type="image/webp"
+                />
+                <source
+                  srcset="
+                    ./image/team/team4_desctop.jpg    1x,
+                    ./image/team/team4_desctop@2x.jpg 2x
+                  "
+                  media="(min-width: 1200px)"
+                  type="image/jpg"
+                />
+                <!-- Зображення для планшета -->
+                <source
+                  srcset="
+                    ./image/team/team4_tablet@WebP.webp   1x,
+                    ./image/team/team4_tablet@2xWebP.webp 2x
+                  "
+                  media="(min-width: 768px)"
+                  type="image/webp"
+                />
+                <source
+                  srcset="
+                    ./image/team/team4_tablet.jpg    1x,
+                    ./image/team/team4_tablet@2x.jpg 2x
+                  "
+                  media="(min-width: 768px)"
+                  type="image/jpg"
+                />
+                <!-- Мобільне зображення -->
+                <source
+                  srcset="
+                    ./image/team/team4_mobile@WebP.webp   1x,
+                    ./image/team/team4_mobile@2xWebP.webp 2x
+                  "
+                  media="(max-width: 767px)"
+                  type="image/webp"
+                />
+                <source
+                  srcset="
+                    ./image/team/team4_mobile.jpg    1x,
+                    ./image/team/team4_mobile@2x.jpg 2x
+                  "
+                  media="(max-width: 767px)"
+                  type="image/jpg"
+                />
+                <!-- Основне зображення -->
+                <img
+                  src="./image/team/team1_mobile.jpg"
+                  alt="team member 4"
+                  width="450"
+                  height="460"
+                  class="team__images"
+                />
+              </picture>
               <div class="team__description-group">
                 <h3 class="team__card-title">Михайло Єрмаков</h3>
                 <p class="team__card-paragraph">UI Designer</p>
@@ -442,7 +741,7 @@
           </ul>
         </div>
       </section>
-      <!-- Постійні клієнти -->
+      <!-- Секція Постійні клієнти -->
       <section class="section clients">
         <div class="container clients__container">
           <h2 class="section-title">Постійні клієнти</h2>
@@ -525,7 +824,7 @@
         <!-- приєднуйтесь -->
         <div class="footer__group">
           <h2 class="footer__title">приєднуйтесь</h2>
-          <ul class="list social">
+          <ul class="list social footer__social">
             <li class="social__item">
               <a href="" class="social__link social__link--gray-bg">
                 <svg class="social__icon" width="20" height="20">
@@ -581,5 +880,6 @@
       </div>
     </footer>
     <script src="./scripts/modal.js"></script>
+    <script src="./scripts/menu.js"></script>
   </body>
 </html>

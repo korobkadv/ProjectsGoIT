@@ -14,7 +14,7 @@
   transition: opacity var(--cubic-bezier-250),
     visibility var(--cubic-bezier-250);
 
-  z-index: 1;
+  z-index: 99;
 }
 
 .backdrop.is-hidden {
@@ -32,8 +32,10 @@
   top: 50%;
   left: 50%;
 
-  width: 528px;
-  height: 581px;
+  // width: 528px;
+  // height: 581px;
+
+  width: 450px;
 
   padding: 40px;
 
@@ -196,7 +198,7 @@
 .modal-form__custom-checkbox {
   width: 16px;
   height: 15px;
-  margin-right: 7px;
+  margin-right: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -227,8 +229,8 @@
 }
 
 .modal-form__policy-desc {
-  line-height: 1.714;
-  letter-spacing: 0.42px;
+  font-size: 12px;
+  letter-spacing: 0.36px;
 }
 
 .modal-form__policy-link,
@@ -240,4 +242,16 @@
   height: 50px;
 
   margin: 0px auto;
+}
+
+@media screen and (min-width: 1200px) {
+  .modal-form__policy-desc {
+    line-height: 1.714;
+    letter-spacing: 0.42px;
+  }
+
+  .modal-wrapper {
+    width: 528px;
+    height: 581px;
+  }
 }

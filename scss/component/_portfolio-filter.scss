@@ -1,15 +1,17 @@
 /* Portfolio filter stile */
 .portfolio__filter-list {
   display: flex;
+  flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
 
-  justify-content: center;
+  justify-content: left;
 }
 
 .portfolio__filter-item {
-  margin-right: 8px;
+  margin-right: 9px;
+  margin-bottom: 15px;
 
   &:last-child {
     margin-right: 0;
@@ -22,6 +24,8 @@
   background-color: var(--list-bg-color);
 
   color: var(--secondary-text-color);
+  font-family: Roboto;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.6;
   letter-spacing: 0.48px;
@@ -40,5 +44,11 @@
   &--active {
     background-color: var(--accent-color);
     color: var(--primary-whyte-color);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .portfolio__filter-list {
+    justify-content: center;
   }
 }

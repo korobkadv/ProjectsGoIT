@@ -3,37 +3,47 @@
    To-do section
 ========================
 */
-.todo__list {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
+.todo {
+  display: none;
 }
 
-.todo__item {
-  flex-basis: calc((100% - 60px) / 3);
+@media screen and (min-width: 1200px) {
+  .todo {
+    display: block;
+  }
 
-  position: relative;
-}
+  .todo__list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
 
-.todo__card-title {
-  padding-top: 27px;
-  padding-bottom: 27px;
+  .todo__item {
+    flex-basis: calc((100% - 60px) / 3);
 
-  background-color: var(--todo-bg-card-title);
-  color: var(--primary-whyte-color);
+    position: relative;
+  }
 
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 0.42px;
-  text-transform: uppercase;
+  .todo__card-title {
+    padding-top: 27px;
+    padding-bottom: 27px;
 
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
+    background-color: var(--todo-bg-card-title);
+    color: var(--primary-whyte-color);
 
-  text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.42px;
+    text-transform: uppercase;
 
-  width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+
+    text-align: center;
+
+    width: 100%;
+  }
 }

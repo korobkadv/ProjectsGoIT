@@ -3,11 +3,11 @@
    Portfolio card
 =======================
 */
-.portfolio__card-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-}
+// .portfolio__card-list {
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 30px;
+// }
 
 .portfolio__card-item {
   color: var(--primary-text-color);
@@ -16,7 +16,7 @@
   line-height: 1.9;
   letter-spacing: 0.48px;
 
-  flex-basis: calc((100% - 60px) / 3);
+  // flex-basis: calc((100% - 60px) / 3);
 }
 
 .portfolio__card-link {
@@ -90,4 +90,32 @@
   font-size: 16px;
   line-height: 1.9;
   letter-spacing: 0.48px;
+}
+
+@media screen and (min-width: 768px) {
+  .portfolio__card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .portfolio__card-item {
+    flex-basis: calc((100% - 30px) / 2);
+  }
+
+  .portfolio__card-images {
+    width: 354px;
+    height: 294px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .portfolio__card-item {
+    flex-basis: calc((100% - 60px) / 3);
+  }
+
+  .portfolio__card-images {
+    width: 370px;
+    height: 294px;
+  }
 }

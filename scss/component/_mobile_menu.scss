@@ -1,0 +1,138 @@
+/* Mobile menu */
+.mobile-menu-group {
+  display: flex;
+}
+
+.navigation__mobile-menu-btn {
+  position: relative;
+  top: 0px;
+  right: 0px;
+
+  display: inline-flex;
+
+  margin: 0;
+  padding: 0;
+
+  min-width: 40px;
+  min-height: 40px;
+
+  background-color: var(--primary-whyte-color);
+  border: 0px solid var(--modal-closse-button-color);
+
+  &.is-open .navigation__cross-icon {
+    display: block;
+  }
+
+  &.is-open .navigation__menu-icon {
+    display: none;
+  }
+
+  z-index: 9;
+}
+
+.navigation__mobile-menu-btn > .navigation__mobile-menu-icon {
+  margin: 0;
+  padding: 0;
+
+  background-color: transparent;
+
+  border: none;
+
+  fill: var(--secondary-text-color);
+  &:hover,
+  &:focus {
+    fill: var(--accent-color);
+    cursor: pointer;
+  }
+}
+
+.mobile-menu {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: absolute;
+  top: 0;
+  left: -25px;
+  width: 100vw;
+  height: 100vh;
+
+  padding: 60px 40px 48px 40px;
+
+  background-color: var(--primary-whyte-color);
+
+  z-index: 8;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 250ms linear, visibility 250ms linear;
+
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: initial;
+  }
+}
+
+.mobile-menu__item:not(:last-child) {
+  margin-bottom: 32px;
+}
+
+.mobile-menu__link {
+  color: var(--secondary-text-color);
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+
+  outline: 0;
+}
+
+.mobile-menu__contacts {
+  margin-bottom: 64px;
+}
+
+.mobile-menu__contact {
+  color: var(--primary-text-color);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.48px;
+
+  &--blue-color {
+    color: var(--accent-color);
+    font-size: 34px;
+    letter-spacing: 0.68px;
+  }
+}
+
+.mobile-menu__social {
+  display: flex;
+}
+
+.mobile-menu__social-item:not(:first-child) {
+  margin-left: 10px;
+}
+
+.mobile-menu__social-item:not(:last-child) {
+  border-right: 1px solid var(--modal-form-input-border-color);
+
+  & .mobile-menu__social-link {
+    margin-right: 10px;
+  }
+}
+
+.mobile-menu__social-link {
+  color: var(--accent-color);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.36px;
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-menu-group {
+    display: none;
+  }
+}

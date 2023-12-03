@@ -1,6 +1,6 @@
 /* Logo style */
 .logo {
-  margin-right: 93px;
+  display: inline-block;
 
   font-family: var(--secondary-font);
   font-size: 26px;
@@ -29,5 +29,20 @@
   &:hover,
   &:focus {
     color: var(--primary-whyte-color);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .logo {
+    margin-right: 88px;
+  }
+  .footer__logo {
+    margin-right: 0px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .logo {
+    margin-right: 93px;
   }
 }

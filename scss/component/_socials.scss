@@ -5,11 +5,14 @@
 */
 .social {
   display: flex;
+  justify-content: center;
   gap: 10px;
 }
 
 .social__item {
-  flex-basis: calc((100% - 30px) / 4);
+  // flex-basis: calc((100% - 30px) / 4);
+  display: flex;
+  justify-content: center;
 }
 
 .social__link {
@@ -44,4 +47,10 @@
 
 .social__icon {
   fill: currentColor;
+}
+
+@media screen and (min-width: 1200px) {
+  .footer__social {
+    justify-content: left;
+  }
 }
