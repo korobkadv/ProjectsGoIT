@@ -3,31 +3,36 @@ h2,
 h3,
 h4,
 p {
-    margin: 0;
-    margin: 0;
+  margin: 0;
+  margin: 0;
 }
 
 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-.link, link:visited {
-    color: var(--secondary-text-color);
-    text-decoration: none;
-    font-style: normal;
-    
-    transition: color var(--cubic-bezier-250);
+.link,
+link:visited {
+  color: var(--secondary-text-color);
+  text-decoration: none;
+  font-style: normal;
 
-    &:hover,
-    &:focus {
-        color: var(--accent-color);
-    }
+  transition: color var(--cubic-bezier-250);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-color);
+  }
 }
 
 .list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }

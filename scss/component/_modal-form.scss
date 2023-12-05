@@ -32,12 +32,11 @@
   top: 50%;
   left: 50%;
 
-  // width: 528px;
-  // height: 581px;
-
-  width: 450px;
+  max-width: 450px;
 
   padding: 40px;
+
+  overflow-y: scroll;
 
   border-radius: 4px;
   background-color: var(--primary-whyte-color);
@@ -251,7 +250,7 @@
   }
 
   .modal-wrapper {
-    width: 528px;
+    max-width: 528px;
     height: 581px;
   }
 }

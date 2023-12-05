@@ -33,6 +33,8 @@
   transition: color var(--cubic-bezier-250),
     background-color var(--cubic-bezier-250), box-shadow var(--cubic-bezier-250);
 
+  box-shadow: none;
+
   &:hover,
   &:focus {
     color: var(--primary-whyte-color);

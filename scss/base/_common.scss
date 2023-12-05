@@ -1,4 +1,4 @@
-body {
+.body {
   background-color: var(--primary-whyte-color);
   color: var(--primary-text-color);
   font-family: var(--main-font);
@@ -6,8 +6,8 @@ body {
 }
 
 .section {
-  padding-top: 94px;
-  padding-bottom: 94px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .section-title {
@@ -18,4 +18,11 @@ body {
   font-size: 36px;
   font-weight: 700;
   letter-spacing: 1.08px;
+}
+
+@media screen and (min-width: 1200px) {
+  .section {
+    padding-top: 94px;
+    padding-bottom: 94px;
+  }
 }
