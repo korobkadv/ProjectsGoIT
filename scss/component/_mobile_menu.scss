@@ -135,7 +135,11 @@
   line-height: 1.2;
   letter-spacing: 0.36px;
 }
-
+@media screen and (max-width: 479px) {
+  .mobile-menu__contact--blue-color {
+    font-size: 24px;
+  }
+}
 @media screen and (min-width: 768px) {
   .mobile-menu-group {
     display: none;
