@@ -58,7 +58,7 @@
   width: 100vw;
   height: 100vh;
 
-  padding: 60px 40px 48px 40px;
+  padding: 48px 40px 48px 40px;
 
   background-color: var(--primary-whyte-color);
 
@@ -113,7 +113,6 @@
 
 .mobile-menu__social {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .mobile-menu__social-item:not(:first-child) {
@@ -135,11 +134,36 @@
   line-height: 1.2;
   letter-spacing: 0.36px;
 }
+
 @media screen and (max-width: 479px) {
+  .mobile-menu {
+    padding: 48px 15px 48px 15px;
+  }
+
+  .mobile-menu__contact {
+    font-size: 20px;
+  }
+
   .mobile-menu__contact--blue-color {
     font-size: 24px;
   }
+  .mobile-menu__social-link {
+    font-size: 14px;
+  }
+
+  .mobile-menu__contacts {
+    margin-bottom: 34px;
+  }
+
+  .mobile-menu__social-item:not(:first-child) {
+    margin-left: 5px;
+  }
+
+  .mobile-menu__social-item:not(:last-child) .mobile-menu__social-link {
+    margin-right: 5px;
+  }
 }
+
 @media screen and (min-width: 768px) {
   .mobile-menu-group {
     display: none;

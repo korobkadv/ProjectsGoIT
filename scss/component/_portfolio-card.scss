@@ -3,11 +3,6 @@
    Portfolio card
 =======================
 */
-// .portfolio__card-list {
-//   display: flex;
-//   flex-wrap: wrap;
-//   gap: 30px;
-// }
 
 .portfolio__card-item {
   display: flex;
@@ -17,6 +12,8 @@
   font-weight: 400;
   line-height: 1.9;
   letter-spacing: 0.48px;
+
+  margin-bottom: 30px;
 }
 
 .portfolio__card-link {
@@ -49,10 +46,7 @@
   transform: translatey(100%);
   transition: transform 250ms ease-in-out;
 
-  padding-top: 63px;
-  padding-right: 24px;
-  padding-bottom: 63px;
-  padding-left: 24px;
+  padding: 14px 24px;
 
   .portfolio__card-link:hover & {
     transform: translatey(0);
@@ -62,7 +56,7 @@
 .portfolio__card-overlay {
   color: var(--primary-whyte-color);
 
-  font-size: 18px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -93,8 +87,19 @@
   font-size: 16px;
   line-height: 1.9;
   letter-spacing: 0.48px;
+}
 
-  margin-bottom: auto;
+@media screen and (min-width: 480px) {
+  .portfolio__card-overlay-wrapper {
+    padding: 63px 24px;
+  }
+
+  .portfolio__card-overlay {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.54px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -105,7 +110,8 @@
   }
 
   .portfolio__card-item {
-    // flex-grow: 1;
+    margin-bottom: 0px;
+
     flex-basis: calc((100% - 30px) / 2);
   }
 
