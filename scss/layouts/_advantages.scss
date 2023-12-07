@@ -61,6 +61,7 @@
     flex-wrap: nowrap;
   }
   .advantages__item {
+    margin-bottom: 0;
     flex-basis: calc((100% - 60px) / 4);
   }
 }

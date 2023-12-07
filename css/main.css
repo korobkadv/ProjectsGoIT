@@ -228,6 +228,8 @@ link:visited:focus {
   background-color: transparent;
   border: none;
   fill: var(--secondary-text-color);
+  -webkit-transition: fill var(--cubic-bezier-250);
+  transition: fill var(--cubic-bezier-250);
 }
 .navigation__mobile-menu-btn > .navigation__mobile-menu-icon:hover, .navigation__mobile-menu-btn > .navigation__mobile-menu-icon:focus {
   fill: var(--accent-color);
@@ -1073,6 +1075,7 @@ link:visited:focus {
         flex-wrap: nowrap;
   }
   .advantages__item {
+    margin-bottom: 0;
     -ms-flex-preferred-size: calc((100% - 60px) / 4);
         flex-basis: calc((100% - 60px) / 4);
   }
@@ -1351,6 +1354,9 @@ link:visited:focus {
   }
 }
 @media screen and (min-width: 1200px) {
+  .footer {
+    padding-bottom: 60px;
+  }
   .footer__group {
     -ms-flex-preferred-size: 25%;
         flex-basis: 25%;
@@ -1375,7 +1381,7 @@ link:visited:focus {
       flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
@@ -1419,9 +1425,20 @@ link:visited:focus {
 
 @media screen and (min-width: 768px) {
   .portfolio__filter-list {
+    margin-bottom: 30px;
+  }
+  .portfolio__filter-item {
+    margin-bottom: 0px;
+  }
+  .portfolio__filter-list {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .portfolio__filter-list {
+    margin-bottom: 50px;
   }
 }
 /* 

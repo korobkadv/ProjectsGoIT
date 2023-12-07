@@ -39,6 +39,9 @@
   border: none;
 
   fill: var(--secondary-text-color);
+
+  transition: fill var(--cubic-bezier-250);
+
   &:hover,
   &:focus {
     fill: var(--accent-color);
