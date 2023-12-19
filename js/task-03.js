@@ -24,7 +24,6 @@ const images = [
 ];
 
 const listGallery = document.querySelector(".gallery");
-const createItemsGallery = [];
 
 const cardGallery = images
   .map(
