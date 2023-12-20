@@ -29,14 +29,25 @@ form.addEventListener("submit", (event) => {
 
   const formData = new FormData(event.currentTarget);
   let userData = {};
+  let emptyInputs = "";
 
   formData.forEach((value, name) => {
-    !value
-      ? alert(`Будь ласка, заповніть поле ${name}`)
-      : (userData[name] = value);
-
-    form[name].value = "";
+    if (!value) {
+      emptyInputs.length === 0
+        ? (emptyInputs += ` ${name}`)
+        : (emptyInputs += `, ${name}`);
+    } else {
+      userData[name] = value;
+    }
   });
 
-  console.log(userData);
+  if (emptyInputs.length === 0) {
+    Object.keys(userData).forEach((key) => {
+      form[key].value = "";
+    });
+
+    console.log(userData);
+  } else {
+    alert(`Будь ласка, заповніть поле ${emptyInputs}`);
+  }
 });

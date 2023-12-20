@@ -17,14 +17,13 @@ const ingredients = [
 ];
 
 const listIngredients = document.querySelector("#ingredients");
-const createItemLi = [];
 
-ingredients.forEach((item) => {
+const createItemLi = ingredients.map((item) => {
   const createItem = document.createElement("li");
   createItem.textContent = item;
   createItem.classList.add("item");
 
-  createItemLi.push(createItem);
+  return createItem;
 });
 
 listIngredients.append(...createItemLi);
