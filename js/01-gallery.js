@@ -29,7 +29,28 @@ function createCardGallery(galleryItems) {
 
 // Створюємо зображення для модального вікна
 function createModalImages(img) {
-  return basicLightbox.create(`<img src="${img}" width="1280" height="800">`);
+  let images = `<img src="${img}" width="1280" height="800">`;
+  const instance = basicLightbox.create(images, {
+    onShow: (instance) => {
+      document.addEventListener("keydown", (event) => {
+        if (event.code === "Escape") {
+          closeModalImages(instance);
+        }
+      });
+    },
+    onClose: (instance) => {
+      document.removeEventListener("keydown", (event) => {
+        closeModalImages(instance);
+      });
+    },
+  });
+
+  return instance;
+}
+
+// Закриття модального вікна по Escape
+function closeModalImages(instance) {
+  instance.close();
 }
 
 // Відкриваємо модальне вікно з зображенням
@@ -43,13 +64,6 @@ function openModalImages(evt) {
   const image = createModalImages(evt.target.dataset.source);
 
   image.show();
-
-  // Закриття модального вікна по Escape
-  document.addEventListener("keydown", (event) => {
-    if (event.code === "Escape") {
-      image.close();
-    }
-  });
 }
 
 /*
