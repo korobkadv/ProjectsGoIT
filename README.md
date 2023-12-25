@@ -18,4 +18,5 @@
 5. ...
 6. https://github.com/korobkadv/ProjectsGoIT/tree/goit-js-hw-06
 7. https://github.com/korobkadv/ProjectsGoIT/tree/goit-js-hw-07
+8. https://github.com/korobkadv/ProjectsGoIT/tree/goit-js-hw-08
 
