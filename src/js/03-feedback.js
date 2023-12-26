@@ -35,15 +35,15 @@ form.addEventListener('submit', handleSubmit);
 function handleSubmit(event) {
   event.preventDefault();
 
-  // Очищаємо сховище та поля форми
-  localStorage.removeItem('feedback-form-state');
-  emailInput.value = '';
-  messageInput.value = '';
-
   // Виводимо у консоль об'єкт з полями email та message та їхніми значеннями
   const formValues = {
     email: emailInput.value,
     message: messageInput.value,
   };
   console.log(formValues);
+
+  // Очищаємо сховище та поля форми
+  localStorage.removeItem('feedback-form-state');
+  emailInput.value = '';
+  messageInput.value = '';
 }
