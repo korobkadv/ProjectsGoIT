@@ -28,7 +28,7 @@ function handleSubmit(event) {
   event.preventDefault();
 
   // Виводимо у консоль об'єкт
-  console.log(storedState);
+  console.log(formState);
 
   // Очищаємо сховище та поля форми
   localStorage.removeItem('feedback-form-state');
