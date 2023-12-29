@@ -1,28 +1,37 @@
 import throttle from 'lodash.throttle';
 
 const form = document.querySelector('.feedback-form');
-
-// Відстежуємо зміни з використанням throttle
-form.addEventListener('input', throttle(handleInput, 500));
+const FEEDBACK_FORM = 'feedback-form-state';
 let formState = {};
+let resultStoredState = {};
 
-// Зберігаємо стан у локальне сховище
+// Перевіряємо стан сховища і якщо щось є то виводимо в форму
+function storedState() {
+  let storedState = JSON.parse(localStorage.getItem(FEEDBACK_FORM));
+  if (storedState) {
+    resultStoredState = storedState;
+  }
+}
+
+function outputToForm() {
+  storedState();
+  if (resultStoredState) {
+    Object.keys(resultStoredState).map(key => {
+      form.querySelector(`[name="${key}"]`).value = resultStoredState[key];
+    });
+  }
+}
+
+outputToForm();
+
+// Відстежуємо зміни в формі з використанням throttle
+form.addEventListener('input', throttle(handleInput, 500));
+
+// Зберігаємо стан форми у локальне сховище
 function handleInput(evt) {
   formState[evt.target.name] = evt.target.value;
 
-  localStorage.setItem('feedback-form-state', JSON.stringify(formState));
-}
-
-// Перевіряємо стан сховища при завантаженні сторінки
-function storedState() {
-  return JSON.parse(localStorage.getItem('feedback-form-state'));
-}
-let resultStoredState = storedState();
-
-if (resultStoredState) {
-  Object.keys(resultStoredState).map(key => {
-    form.querySelector(`[name="${key}"]`).value = resultStoredState[key];
-  });
+  localStorage.setItem(FEEDBACK_FORM, JSON.stringify(formState));
 }
 
 // Додаємо обробник події submit для форми
@@ -32,13 +41,17 @@ function handleSubmit(event) {
   event.preventDefault();
 
   // Виводимо у консоль об'єкт
-  if (!resultStoredState) {
-    resultStoredState = {};
+  storedState();
+
+  if (Object.keys(resultStoredState).length === 0) {
+    console.log('Write something down on the form!');
+  } else {
+    console.log(resultStoredState);
   }
-  console.log(resultStoredState);
 
   // Очищаємо сховище та поля форми
-  localStorage.removeItem('feedback-form-state');
+  localStorage.removeItem(FEEDBACK_FORM);
   event.target.reset();
   formState = {};
+  resultStoredState = {};
 }
