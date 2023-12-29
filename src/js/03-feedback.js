@@ -14,10 +14,14 @@ function handleInput(evt) {
 }
 
 // Перевіряємо стан сховища при завантаженні сторінки
-const storedState = JSON.parse(localStorage.getItem('feedback-form-state'));
-if (storedState) {
-  Object.keys(storedState).map(key => {
-    form.querySelector(`[name="${key}"]`).value = storedState[key];
+function storedState() {
+  return JSON.parse(localStorage.getItem('feedback-form-state'));
+}
+let resultStoredState = storedState();
+
+if (resultStoredState) {
+  Object.keys(resultStoredState).map(key => {
+    form.querySelector(`[name="${key}"]`).value = resultStoredState[key];
   });
 }
 
@@ -28,7 +32,10 @@ function handleSubmit(event) {
   event.preventDefault();
 
   // Виводимо у консоль об'єкт
-  console.log(formState);
+  if (!resultStoredState) {
+    resultStoredState = {};
+  }
+  console.log(resultStoredState);
 
   // Очищаємо сховище та поля форми
   localStorage.removeItem('feedback-form-state');
