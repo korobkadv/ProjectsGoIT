@@ -10,7 +10,7 @@ const BASE_URL = 'https://api.thecatapi.com/v1';
 
 // Запит для отримання назв породи котів
 function fetchBreeds() {
-  return fetch(`${BASE_URL}/breeds?api_key=${API_KEY}`).then(resp => {
+  return fetch(`${BASE_URL}/breeds`).then(resp => {
     if (!resp.ok) {
       throw new Error(resp.statusText);
     }
