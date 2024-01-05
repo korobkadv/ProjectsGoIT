@@ -3,11 +3,6 @@ import 'slim-select/dist/slimselect.css';
 import Notiflix from 'notiflix';
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 
-import axios from 'axios';
-
-axios.defaults.headers.common['x-api-key'] =
-  'live_JgB0clPuL3nvKc4JFyvm6ISJhaKn3bvHlq3E5wx3cZ8JOdFI2w35Nnjv6MEpLfrB';
-
 // Знаходимо необхідну HTML
 const breedSelect = document.querySelector('.breed-select');
 const catInfo = document.querySelector('.cat-info');
