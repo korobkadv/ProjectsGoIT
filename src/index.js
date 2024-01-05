@@ -1,6 +1,6 @@
 import SlimSelect from 'slim-select';
 import 'slim-select/dist/slimselect.css';
-
+import Notiflix from 'notiflix';
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 
 // Знаходимо необхідну HTML
@@ -9,20 +9,23 @@ const catInfo = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader');
 const error = document.querySelector('.error');
 
-loader.hidden = true;
-error.hidden = true;
-
-// Обробляємо запит для назв породи котів
+// Обробляємо запит для списку породи котів
 fetchBreeds()
   .then(data => {
     breedSelect.insertAdjacentHTML('beforeend', createMarkup(data));
     new SlimSelect({
       select: '#single',
+      events: {
+        beforeChange: newVal => {
+          changeCat(newVal[0].value);
+        },
+      },
     });
+    loader.hidden = true;
   })
   .catch(err => {
-    error.hidden = false;
-    console.log(err);
+    loader.hidden = true;
+    errors(err);
   });
 
 function createMarkup(arr) {
@@ -32,21 +35,20 @@ function createMarkup(arr) {
 }
 
 // Обробляєм вибір породи кота
-breedSelect.addEventListener('change', event => {
+function changeCat(breedId) {
   catInfo.textContent = '';
   loader.hidden = false;
 
-  fetchCatByBreed(event.currentTarget.value)
+  fetchCatByBreed(breedId)
     .then(data => {
       catInfo.insertAdjacentHTML('beforeend', createMarkupCatCard(data));
       loader.hidden = true;
     })
     .catch(err => {
       loader.hidden = true;
-      error.hidden = false;
-      console.log(err);
+      errors(err);
     });
-});
+}
 
 // Малюємо карточку однієї породи кота
 function createMarkupCatCard(arr) {
@@ -56,4 +58,15 @@ function createMarkupCatCard(arr) {
   <p>${arr[0].breeds[0].description}</p>
   <p><b>Temperament: </b>${arr[0].breeds[0].temperament}</p>
     `;
+}
+
+// Оброблюємо помилку на сайті
+function errors(err) {
+  Notiflix.Notify.failure(
+    'Oops! Something went wrong! Try reloading the page!',
+    {
+      timeout: 6000,
+    }
+  );
+  console.log(err);
 }
