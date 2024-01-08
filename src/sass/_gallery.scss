@@ -1,19 +1,47 @@
-.breed-select {
-  max-width: 250px;
-  margin: 10px;
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
   padding: 10px;
-  font-size: 16px;
 }
 
-.error {
-  color: #e74c3c;
-  font-size: 25px;
-  font-weight: 600;
+.photo-card {
+  flex-basis: calc((100% - 45px) / 4);
+  display: flex;
+  flex-direction: column;
+
+  & a {
+    flex: 1;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+  }
+  & img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 }
 
-.cat-info img {
-  max-width: 100%;
-  margin-right: 10px;
+.info {
+  font-size: 12px;
+
+  display: flex;
+  flex-wrap: no-wrap;
+  justify-content: space-between;
+  gap: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  & p {
+    text-align: center;
+  }
+  & p b {
+    display: block;
+    margin-bottom: 10px;
+  }
 }
 
 .loader {
