@@ -89,6 +89,7 @@ async function createGallery(valueInput) {
 
     if (resp.total === 0) {
       gallery.innerHTML = '';
+      loader.hidden = true;
       return messages(
         'failure',
         'Sorry, there are no images matching your search query. Please try again.'
