@@ -5,7 +5,6 @@ const API_KEY = '20351609-965303b189c8fb7b47d74cc62';
 
 // Запрос на сервер для отримання зображень
 async function getImages(valueInput, currentPage) {
-  console.log(valueInput);
   const params = {
     key: API_KEY,
     q: valueInput,
