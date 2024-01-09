@@ -1,22 +1,25 @@
-import axios from 'axios';
 import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import { getImages } from './requestPixabay';
+
+let currentPage = 1;
+let valueInput = 'space';
+let lastPage = false;
+let lightbox;
 
 const searchForm = document.querySelector('.search-form');
 const gallery = document.querySelector('.gallery');
 
-let currentPage = 1;
-let valueInput = '';
-let lightbox;
+gallery.insertAdjacentHTML('afterend', `<div class="guard"></div>`);
+const target = document.querySelector('.guard');
 
+// Встановлюємо лоадер
 gallery.insertAdjacentHTML('afterend', `<div class="loader" hidden></div>`);
 const loader = document.querySelector('.loader');
 
 // Нескінченний скрол
 async function infiniteScroll(totalPage) {
-  gallery.insertAdjacentHTML('afterend', `<div class="guard"></div>`);
-
   let options = {
     root: null,
     rootMargin: '300px',
@@ -25,7 +28,6 @@ async function infiniteScroll(totalPage) {
 
   // Накладаєм слідкування
   let observer = new IntersectionObserver(onLoad, options);
-  const target = document.querySelector('.guard');
   observer.observe(target);
 
   // Функція додання нових зображень в кінець сторінки
@@ -33,6 +35,7 @@ async function infiniteScroll(totalPage) {
     if (entries[0].isIntersecting && currentPage <= totalPage) {
       if (currentPage === totalPage) {
         observer.unobserve(target);
+        lastPage = true;
       }
       if (currentPage > 1) {
         loader.hidden = false;
@@ -43,7 +46,11 @@ async function infiniteScroll(totalPage) {
         loader.hidden = true;
       }
     }
-
+    if (lastPage) {
+      target.innerHTML =
+        "We're sorry, but you've reached the end of search results.";
+      target.classList.add('lastPage');
+    }
     // Умова при першому пошуку
     if (currentPage === 1 && !entries[0].isIntersecting) {
       currentPage += 1;
@@ -77,7 +84,7 @@ async function smoothScroll() {
     .firstElementChild.getBoundingClientRect();
 
   window.scrollBy({
-    top: cardHeight * 2, // Змініть це значення, якщо потрібно інше прокручування
+    top: cardHeight * 2,
     behavior: 'smooth',
   });
 }
@@ -85,7 +92,7 @@ async function smoothScroll() {
 // Вставляємо картки з зображеннями в HTML
 async function createGallery(valueInput) {
   try {
-    const resp = await getImages(valueInput);
+    const resp = await getImages(valueInput, currentPage);
 
     if (resp.total === 0) {
       gallery.innerHTML = '';
@@ -113,34 +120,6 @@ async function createGallery(valueInput) {
     return resp.totalHits;
   } catch (e) {
     console.error(e);
-  }
-}
-
-// Запрос на сервер для отримання зображень
-async function getImages(valueInput) {
-  const BASE_URL = 'https://pixabay.com/api/';
-  const API_KEY = '20351609-965303b189c8fb7b47d74cc62';
-
-  const params = {
-    key: API_KEY,
-    q: valueInput,
-    image_type: 'photo',
-    orientation: 'horizontal',
-    safesearch: true,
-    per_page: 40,
-    lang: 'en',
-    page: currentPage,
-  };
-
-  try {
-    const response = await axios.get(BASE_URL, { params });
-    return response.data;
-  } catch (error) {
-    messages(
-      'failure',
-      'The server is not responding or the request is invalid.'
-    );
-    throw new Error('The server is not responding or the request is invalid.');
   }
 }
 
