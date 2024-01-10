@@ -1,12 +1,15 @@
-import Notiflix from 'notiflix';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-import { getImages } from './requestPixabay';
+import { messages } from './messages';
+
+import { getImages } from './request';
+import { createMarkupUnsplash, createMarkupPixabay } from './createMarkup';
 
 let currentPage = 1;
 let valueInput = 'space';
 let lastPage = false;
 let lightbox;
+let userSelectedAPI = 'pixabay';
 
 const searchForm = document.querySelector('.search-form');
 const gallery = document.querySelector('.gallery');
@@ -63,6 +66,7 @@ searchForm.addEventListener('submit', handlerForm);
 async function handlerForm(evt) {
   evt.preventDefault();
 
+  userSelectedAPI = evt.currentTarget[0].value;
   loader.hidden = false;
 
   valueInput = new FormData(evt.currentTarget).get('searchQuery');
@@ -71,8 +75,15 @@ async function handlerForm(evt) {
 
   const totalHits = await createGallery(valueInput);
   if (totalHits) {
-    await messages('success', `Hooray! We found ${totalHits} images.`);
-    await infiniteScroll(Math.ceil(totalHits / 40));
+    if (userSelectedAPI === 'pixabay') {
+      await messages('success', `Hooray! We found ${totalHits} images.`);
+      await infiniteScroll(Math.ceil(totalHits / 40));
+    }
+    if (userSelectedAPI === 'unsplash') {
+      await messages('success', `Hooray! We found ${totalHits * 30} images.`);
+      await infiniteScroll(totalHits);
+    }
+
     loader.hidden = true;
   }
 }
@@ -92,7 +103,8 @@ async function smoothScroll() {
 // Вставляємо картки з зображеннями в HTML
 async function createGallery(valueInput) {
   try {
-    const resp = await getImages(valueInput, currentPage);
+    // const resp = await getImages(valueInput, currentPage);
+    const resp = await getImages(valueInput, currentPage, userSelectedAPI);
 
     if (resp.total === 0) {
       gallery.innerHTML = '';
@@ -102,8 +114,12 @@ async function createGallery(valueInput) {
         'Sorry, there are no images matching your search query. Please try again.'
       );
     }
-
-    gallery.insertAdjacentHTML('beforeend', createMarkup(resp));
+    if (userSelectedAPI === 'pixabay') {
+      gallery.insertAdjacentHTML('beforeend', createMarkupPixabay(resp));
+    }
+    if (userSelectedAPI === 'unsplash') {
+      gallery.insertAdjacentHTML('beforeend', createMarkupUnsplash(resp));
+    }
 
     // Налаштування SimpleLightbox. Оновлюємо якщо доповнили сторінку скролом
     if (lightbox) {
@@ -117,55 +133,14 @@ async function createGallery(valueInput) {
       captionDelay: 250,
     });
 
-    return resp.totalHits;
+    if (userSelectedAPI === 'pixabay') {
+      return resp.totalHits;
+    }
+    if (userSelectedAPI === 'unsplash') {
+      return resp.total_pages;
+    }
   } catch (e) {
     console.error(e);
+    loader.hidden = true;
   }
-}
-
-// Створюємо картки для зображень
-function createMarkup(arr) {
-  return arr.hits
-    .map(
-      ({
-        webformatURL,
-        largeImageURL,
-        tags,
-        likes,
-        views,
-        comments,
-        downloads,
-      }) =>
-        `<div class="photo-card">
-            <a href="${largeImageURL}" class="photo-card__link">
-                <img src="${webformatURL}" alt="${tags}" loading="lazy" />
-            </a>
-            <div class="info">
-                <p class="info-item">
-                <b>Likes</b>
-                ${likes}
-                </p>
-                <p class="info-item">
-                <b>Views</b>
-                ${views}
-                </p>
-                <p class="info-item">
-                <b>Comments</b>
-                ${comments}
-                </p>
-                <p class="info-item">
-                <b>Downloads</b>
-                ${downloads}
-                </p>
-            </div>
-          </div>`
-    )
-    .join('');
-}
-
-// Функція виводу повідомлень на сайті
-export async function messages(types, text) {
-  Notiflix.Notify[types](text, {
-    timeout: 3000,
-  });
 }

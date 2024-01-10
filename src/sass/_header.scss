@@ -9,15 +9,12 @@
 
 .search-form {
   margin: 20px auto;
-  background-color: #ffffff;
-  border: 1px solid #bdc3c7;
-  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 input {
-  width: 400px;
+  display: block;
+  width: 250px;
   padding: 10px;
   border: 1px solid transparent;
   font-size: 16px;
@@ -30,6 +27,17 @@ input {
   &::placeholder {
     color: #bdc3c7;
   }
+}
+
+.changeAPI {
+  display: block;
+  width: 100px;
+  padding: 10px;
+  border: 1px solid transparent;
+  font-size: 16px;
+  float: left;
+  background-color: #f7f7f7;
+  margin-right: 10px;
 }
 
 button {
