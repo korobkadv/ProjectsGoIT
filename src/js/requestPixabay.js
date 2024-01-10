@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { messages } from './index';
 
 const BASE_URL = 'https://pixabay.com/api/';
 const API_KEY = '20351609-965303b189c8fb7b47d74cc62';
@@ -15,9 +16,12 @@ async function getImages(valueInput, currentPage) {
     lang: 'en',
     page: currentPage,
   };
+  const headers = {
+    'Access-Control-Allow-Origin': BASE_URL,
+  };
 
   try {
-    const response = await axios.get(BASE_URL, { params });
+    const response = await axios.get(BASE_URL, { params, headers });
     return response.data;
   } catch (error) {
     messages(

@@ -164,7 +164,7 @@ function createMarkup(arr) {
 }
 
 // Функція виводу повідомлень на сайті
-async function messages(types, text) {
+export async function messages(types, text) {
   Notiflix.Notify[types](text, {
     timeout: 3000,
   });
