@@ -14,6 +14,7 @@ let userSelectedAPI = 'pixabay';
 const searchForm = document.querySelector('.search-form');
 const gallery = document.querySelector('.gallery');
 
+// Блок для слідкування безкынечного скролу
 gallery.insertAdjacentHTML('afterend', `<div class="guard"></div>`);
 const target = document.querySelector('.guard');
 
