@@ -140,7 +140,8 @@ async function createGallery(valueInput) {
       return resp.total_pages;
     }
   } catch (e) {
-    console.error(e);
+    messages('failure', e.message);
+    target.innerHTML = '';
     loader.hidden = true;
   }
 }

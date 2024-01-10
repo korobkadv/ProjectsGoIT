@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { messages } from './messages';
 
 const BASE_URL_UNSPLASH = 'https://api.unsplash.com/search/photos';
 const ACCESS_KEY_UNSPLASH = '5yJkCLsmVv3qaXZ14UY_FkOalcWXDMASHFlh5eHy-eA';
@@ -44,10 +43,6 @@ async function getImages(valueInput, currentPage, userSelectedAPI) {
     const response = await axios.get(base_url, { params, headers });
     return response.data;
   } catch (error) {
-    messages(
-      'failure',
-      'The server is not responding or the request is invalid.'
-    );
     throw new Error('The server is not responding or the request is invalid.');
   }
 }
