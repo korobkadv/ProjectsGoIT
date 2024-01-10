@@ -2,7 +2,8 @@ import axios from 'axios';
 import { messages } from './index';
 
 const BASE_URL = 'https://pixabay.com/api/';
-const API_KEY = '20351609-965303b189c8fb7b47d74cc62';
+// const API_KEY = '20351609-965303b189c8fb7b47d74cc62';
+const API_KEY = '41740366-db707f4ee602d5a7346c5644f';
 
 // Запрос на сервер для отримання зображень
 async function getImages(valueInput, currentPage) {
@@ -17,7 +18,7 @@ async function getImages(valueInput, currentPage) {
     page: currentPage,
   };
   const headers = {
-    'Access-Control-Allow-Origin': BASE_URL,
+    'Access-Control-Allow-Origin': '*',
   };
 
   try {
