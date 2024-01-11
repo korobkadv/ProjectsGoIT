@@ -72,6 +72,7 @@ async function handlerForm(evt) {
 
   valueInput = new FormData(evt.currentTarget).get('searchQuery');
   gallery.innerHTML = '';
+  target.innerHTML = '';
   currentPage = 1;
 
   const totalHits = await createGallery(valueInput);
@@ -109,6 +110,7 @@ async function createGallery(valueInput) {
 
     if (resp.total === 0) {
       gallery.innerHTML = '';
+      target.innerHTML = '';
       loader.hidden = true;
       return messages(
         'failure',
