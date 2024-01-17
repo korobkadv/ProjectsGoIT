@@ -8,7 +8,7 @@ import {
 export const Statistics = ({ title, stats }) => {
   return (
     <SectionStatistics>
-      {title && <Title>Upload stats</Title>}
+      {title && <Title>{title}</Title>}
       <StatsList>
         {stats.map(stat => {
           return (
