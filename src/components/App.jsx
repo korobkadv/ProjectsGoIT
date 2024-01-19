@@ -33,6 +33,7 @@ export const App = () => {
       <div>
         <FriendList friends={friends} />
       </div>
+
       <div>
         <TransactionHistory items={transactions} />
       </div>
