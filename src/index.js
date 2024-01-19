@@ -10,7 +10,8 @@ const theme = {
     grey: '#E7ECF2',
     textColor: '#4E5C6C',
     greyText: '#949494',
-    acent: '#00BCD5',
+    acent: '#3498db',
+    acent2: '#2980b9',
   },
   spacing: value => `${value * 4}px`,
 };

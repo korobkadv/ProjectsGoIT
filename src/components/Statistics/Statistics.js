@@ -1,24 +1,12 @@
-import {
-  SectionStatistics,
-  Title,
-  StatsList,
-  StatsItem,
-} from './Statistics.styled';
+import { SectionStatistics } from './Statistics.styled';
 
-export const Statistics = ({ title, stats }) => {
+export const Statistics = ({ good, neutral, bad, positivePercentage }) => {
   return (
     <SectionStatistics>
-      {title && <Title>{title}</Title>}
-      <StatsList>
-        {stats.map(stat => {
-          return (
-            <StatsItem key={stat.id}>
-              <span>{stat.label}</span>
-              <span>{stat.percentage}</span>
-            </StatsItem>
-          );
-        })}
-      </StatsList>
+      <p>Good: {good}</p>
+      <p>Neutral: {neutral}</p>
+      <p>Bad: {bad}</p>
+      <p>Positive feedback: {positivePercentage}%</p>
     </SectionStatistics>
   );
 };

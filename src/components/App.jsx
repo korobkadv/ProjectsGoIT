@@ -1,42 +1,63 @@
+import { Component } from 'react';
 import { GlobalStyle } from './GlobalStyle';
-
 import { AppWrapper } from './App.styled';
-
-import user from './Profile/user.json';
-import { Profile } from './Profile/Profile';
-
-import data from './Statistics/data.json';
 import { Statistics } from './Statistics/Statistics';
+import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+import { Section } from './Section/Section';
+import { Notification } from './Notification/Notification';
 
-import friends from './FriendList/friends.json';
-import { FriendList } from './FriendList/FriendList';
+export class App extends Component {
+  state = {
+    good: 0,
+    neutral: 0,
+    bad: 0,
+  };
 
-import transactions from './TransactionHistory/transactions.json';
-import { TransactionHistory } from './TransactionHistory/TransactionHistory';
+  updateState = evt => {
+    this.setState(prevState => {
+      const name = evt.target.name;
 
-export const App = () => {
-  return (
-    <AppWrapper>
-      <div>
-        <Profile
-          username={user.username}
-          tag={user.tag}
-          location={user.location}
-          avatar={user.avatar}
-          stats={user.stats}
-        />
-      </div>
-      <div>
-        <Statistics title="Upload stats" stats={data} />
-        <Statistics stats={data} />
-      </div>
-      <div>
-        <FriendList friends={friends} />
-      </div>
-      <div>
-        <TransactionHistory items={transactions} />
-      </div>
-      <GlobalStyle />
-    </AppWrapper>
-  );
-};
+      return {
+        [name]: prevState[name] + 1,
+      };
+    });
+  };
+
+  countTotalFeedback = () => {
+    const { good, neutral, bad } = this.state;
+    return good + neutral + bad;
+  };
+
+  countPositiveFeedbackPercentage = () => {
+    const { good } = this.state;
+    const totalFeedback = this.countTotalFeedback();
+    return Math.round((good / totalFeedback) * 100);
+  };
+
+  render() {
+    const { good, neutral, bad } = this.state;
+    const positivePercentage = this.countPositiveFeedbackPercentage();
+
+    return (
+      <AppWrapper>
+        <Section>
+          <FeedbackOptions updateState={this.updateState} />
+        </Section>
+        {positivePercentage >= 0 ? (
+          <Section title="Statistics">
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              positivePercentage={positivePercentage}
+            />
+          </Section>
+        ) : (
+          <Notification message="There is no feedback" />
+        )}
+
+        <GlobalStyle />
+      </AppWrapper>
+    );
+  }
+}
