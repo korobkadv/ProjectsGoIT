@@ -6,9 +6,11 @@ export const FeedbackOptions = ({ updateState }) => {
       <Button onClick={updateState} name="good">
         Good
       </Button>
+
       <Button onClick={updateState} name="neutral">
         Neutral
       </Button>
+
       <Button onClick={updateState} name="bad">
         Bad
       </Button>
