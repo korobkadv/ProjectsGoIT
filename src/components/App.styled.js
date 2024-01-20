@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const AppWrapper = styled.div`
-  width: 300px;
+  width: 350px;
   background-color: ${p => p.theme.colors.white};
 
   border-radius: ${p => p.theme.spacing(3)};

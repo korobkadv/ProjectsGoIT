@@ -12,6 +12,8 @@ const theme = {
     greyText: '#949494',
     acent: '#3498db',
     acent2: '#2980b9',
+    acent3: '#F13906',
+    error: '#E74C3C',
   },
   spacing: value => `${value * 4}px`,
 };

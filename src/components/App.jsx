@@ -1,60 +1,83 @@
 import { Component } from 'react';
+import { nanoid } from 'nanoid';
 import { GlobalStyle } from './GlobalStyle';
 import { AppWrapper } from './App.styled';
-import { Statistics } from './Statistics/Statistics';
-import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Section } from './Section/Section';
-import { Notification } from './Notification/Notification';
+import { ContactForm } from './ContactForm/ContactForm';
+import { ContactList } from './ContactList/ContactList';
+import { Filter } from './Filter/Filter';
 
 export class App extends Component {
   state = {
-    good: 0,
-    neutral: 0,
-    bad: 0,
+    contacts: [
+      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+    ],
+    filter: '',
   };
 
-  updateState = evt => {
-    this.setState(prevState => {
-      const name = evt.target.name;
+  onChangeFilter = evt => {
+    this.setState({
+      filter: evt.target.value,
+    });
+  };
 
+  onAddContact = value => {
+    const { name, number } = value;
+
+    if (this.state.contacts.some(contact => contact.name === name)) {
+      alert(`${name} is alredy in contacts!`);
+      return 'hasAlready';
+    }
+
+    const contact = {
+      id: nanoid(),
+      name: name,
+      number: number,
+    };
+
+    this.setState(prevState => {
       return {
-        [name]: prevState[name] + 1,
+        contacts: [...prevState.contacts, contact],
+        filter: '',
       };
     });
   };
 
-  countTotalFeedback = () => {
-    const { good, neutral, bad } = this.state;
-    return good + neutral + bad;
-  };
-
-  countPositiveFeedbackPercentage = () => {
-    const { good } = this.state;
-    const totalFeedback = this.countTotalFeedback();
-    return Math.round((good / totalFeedback) * 100);
+  onDeleteContact = contactId => {
+    this.setState(prevState => {
+      return {
+        contacts: prevState.contacts.filter(
+          contact => contact.id !== contactId
+        ),
+      };
+    });
   };
 
   render() {
-    const { good, neutral, bad } = this.state;
-    const positivePercentage = this.countPositiveFeedbackPercentage();
+    const { contacts, filter } = this.state;
+
+    const visibleContacts = contacts.filter(cont => {
+      const hasName = cont.name.toLowerCase().includes(filter.toLowerCase());
+
+      return hasName;
+    });
 
     return (
       <AppWrapper>
-        <Section>
-          <FeedbackOptions updateState={this.updateState} />
+        <Section title="Phonebook">
+          <ContactForm onAddContact={this.onAddContact} />
         </Section>
-        {positivePercentage >= 0 ? (
-          <Section title="Statistics">
-            <Statistics
-              good={good}
-              neutral={neutral}
-              bad={bad}
-              positivePercentage={positivePercentage}
-            />
-          </Section>
-        ) : (
-          <Notification message="There is no feedback" />
-        )}
+
+        <Section title="Contacts">
+          <Filter valueFilter={filter} onChangeFilter={this.onChangeFilter} />
+          <ContactList
+            visibleContacts={visibleContacts}
+            onDeleteContact={this.onDeleteContact}
+          />
+        </Section>
 
         <GlobalStyle />
       </AppWrapper>
