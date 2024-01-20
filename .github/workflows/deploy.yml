@@ -2,7 +2,7 @@ name: Build and deploy to GitHub Pages
 
 on:
   push:
-    branches: [goit-react-hw-02-feedback]
+    branches: [goit-react-hw-02-phonebook]
 
 jobs:
   build-and-deploy:
@@ -20,5 +20,5 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
-          branch: gh-pages-react-hw-02-feedback
+          branch: gh-pages-react-hw-02-phonebook
           folder: build
