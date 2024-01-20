@@ -32,7 +32,7 @@
     - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-react-hw-01-components
 02. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-02-feedback
     - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-react-hw-02-feedback
-      
-03 https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-02-phonebook
+03. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-02-phonebook
     - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-react-hw-02-phonebook
+
 
