@@ -59,11 +59,11 @@ export class App extends Component {
   render() {
     const { contacts, filter } = this.state;
 
-    const visibleContacts = contacts.filter(cont => {
-      const hasName = cont.name.toLowerCase().includes(filter.toLowerCase());
-
-      return hasName;
-    });
+    const visibleContacts =
+      contacts.length &&
+      contacts.filter(cont => {
+        return cont.name.toLowerCase().includes(filter.toLowerCase());
+      });
 
     return (
       <AppWrapper>
@@ -73,10 +73,12 @@ export class App extends Component {
 
         <Section title="Contacts">
           <Filter valueFilter={filter} onChangeFilter={this.onChangeFilter} />
-          <ContactList
-            visibleContacts={visibleContacts}
-            onDeleteContact={this.onDeleteContact}
-          />
+          {visibleContacts.length && (
+            <ContactList
+              visibleContacts={visibleContacts}
+              onDeleteContact={this.onDeleteContact}
+            />
+          )}
         </Section>
 
         <GlobalStyle />
