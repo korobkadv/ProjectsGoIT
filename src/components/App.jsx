@@ -71,15 +71,18 @@ export class App extends Component {
           <ContactForm onAddContact={this.onAddContact} />
         </Section>
 
-        <Section title="Contacts">
-          <Filter valueFilter={filter} onChangeFilter={this.onChangeFilter} />
-          {visibleContacts.length && (
+        {visibleContacts.length ? (
+          <Section title="Contacts">
+            <Filter valueFilter={filter} onChangeFilter={this.onChangeFilter} />
+
             <ContactList
               visibleContacts={visibleContacts}
               onDeleteContact={this.onDeleteContact}
             />
-          )}
-        </Section>
+          </Section>
+        ) : (
+          'No contacts'
+        )}
 
         <GlobalStyle />
       </AppWrapper>

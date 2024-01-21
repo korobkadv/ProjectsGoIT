@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-export const Contacts = styled.ul`
-  margin: ${p => p.theme.spacing(3)};
-`;
-
 export const ContactsItem = styled.li`
   max-width: 100%;
   margin-bottom: ${p => p.theme.spacing(2)};
