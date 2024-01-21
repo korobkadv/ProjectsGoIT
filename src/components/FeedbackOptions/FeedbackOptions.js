@@ -1,19 +1,13 @@
 import { Button, ButtonWrapper } from './FeedbackOptions.styled';
 
-export const FeedbackOptions = ({ updateState }) => {
+export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <ButtonWrapper>
-      <Button onClick={updateState} name="good">
-        Good
-      </Button>
-
-      <Button onClick={updateState} name="neutral">
-        Neutral
-      </Button>
-
-      <Button onClick={updateState} name="bad">
-        Bad
-      </Button>
+      {Object.keys(options).map(key => (
+        <Button onClick={onLeaveFeedback} name={key} key={key}>
+          {key.charAt(0).toUpperCase() + key.slice(1)}
+        </Button>
+      ))}
     </ButtonWrapper>
   );
 };
