@@ -12,6 +12,7 @@ export class App extends Component {
     neutral: 0,
     bad: 0,
   };
+  options = ['Good', 'Neutral', 'Bad'];
 
   onLeaveFeedback = evt => {
     this.setState(prevState => {
@@ -42,7 +43,7 @@ export class App extends Component {
       <AppWrapper>
         <Section>
           <FeedbackOptions
-            options={{ good, neutral, bad }}
+            options={this.options}
             onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>
