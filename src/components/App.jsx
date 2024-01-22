@@ -20,7 +20,6 @@ export class App extends Component {
 
       return {
         [name]: prevState[name] + 1,
-        total: prevState.total + 1,
       };
     });
   };
