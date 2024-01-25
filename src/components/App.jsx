@@ -1,101 +1,90 @@
 import { Component } from 'react';
-import { nanoid } from 'nanoid';
 import { GlobalStyle } from './GlobalStyle';
-import { AppWrapper } from './App.styled';
-import { Section } from './Section/Section';
-import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
-
-const storageKey = 'contacts';
+import { AppWrapper, Main } from './App.styled';
+import { fetchPixabayImages } from 'api';
+import { Searchbar } from './Searchbar/Searchbar';
+import { ImageGallery } from './ImageGallery/ImageGallery';
+import { Loader } from './Loader/Loader';
+import { Button } from './Button/Button';
 
 export class App extends Component {
   state = {
-    contacts: [],
-    filter: '',
+    images: [],
+    query: '',
+    page: 1,
+    allPages: 1,
+    isLoading: false,
   };
 
-  componentDidMount() {
-    const savedContacts = localStorage.getItem(storageKey);
-    if (savedContacts !== null) {
-      this.setState({
-        contacts: JSON.parse(savedContacts),
-      });
+  // componentDidMount() {
+  //   const savedContacts = localStorage.getItem(storageKey);
+  //   if (savedContacts !== null) {
+  //     this.setState({
+  //       contacts: JSON.parse(savedContacts),
+  //     });
+  //   }
+  // }
+
+  async componentDidUpdate(prevProps, prevState) {
+    if (
+      prevState.query !== this.state.query ||
+      prevState.page !== this.state.page
+    ) {
+      if (prevState.query !== this.state.query) {
+        prevState.images = [];
+      }
+
+      try {
+        this.setState({ isLoading: true });
+
+        const initialImages = await fetchPixabayImages(
+          this.state.query,
+          this.state.page
+        );
+        // console.log(initialImages);
+        this.setState({
+          images: [...prevState.images, ...initialImages.hits],
+          allPages: Math.round(initialImages.totalHits / 20),
+        });
+      } catch (error) {
+        console.log(error);
+      } finally {
+        this.setState({ isLoading: false });
+      }
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.contacts !== this.state.contacts) {
-      localStorage.setItem(storageKey, JSON.stringify(this.state.contacts));
-    }
-  }
+  onSubmit = evt => {
+    evt.preventDefault();
 
-  onChangeFilter = evt => {
     this.setState({
-      filter: evt.target.value,
+      images: [],
+      page: 1,
+      allPages: 1,
+      query: evt.target[1].value,
     });
   };
 
-  onAddContact = value => {
-    const { name, number } = value;
+  loadMore = evt => {
+    evt.preventDefault();
 
-    if (this.state.contacts.some(contact => contact.name === name)) {
-      alert(`${name} is alredy in contacts!`);
-      return 'hasAlready';
-    }
-
-    const contact = {
-      id: nanoid(),
-      name: name,
-      number: number,
-    };
-
-    this.setState(prevState => {
-      return {
-        contacts: [...prevState.contacts, contact],
-        filter: '',
-      };
-    });
-  };
-
-  onDeleteContact = contactId => {
-    this.setState(prevState => {
-      return {
-        contacts: prevState.contacts.filter(
-          contact => contact.id !== contactId
-        ),
-      };
+    this.setState({
+      page: this.state.page + 1,
     });
   };
 
   render() {
-    const { contacts, filter } = this.state;
-
-    const visibleContacts =
-      contacts.length &&
-      contacts.filter(cont => {
-        return cont.name.toLowerCase().includes(filter.toLowerCase());
-      });
-
+    const { images, page, allPages, isLoading } = this.state;
     return (
       <AppWrapper>
-        <Section title="Phonebook">
-          <ContactForm onAddContact={this.onAddContact} />
-        </Section>
-
-        {visibleContacts.length ? (
-          <Section title="Contacts">
-            <Filter valueFilter={filter} onChangeFilter={this.onChangeFilter} />
-
-            <ContactList
-              visibleContacts={visibleContacts}
-              onDeleteContact={this.onDeleteContact}
-            />
-          </Section>
-        ) : (
-          'No contacts'
-        )}
-
+        <Searchbar onSubmit={this.onSubmit} />
+        <Main>
+          {images.length > 0 && <ImageGallery images={images} />}
+          {isLoading && <Loader />}
+          {page !== allPages && (
+            <Button title="Load more" loadMore={this.loadMore} />
+          )}
+        </Main>
         <GlobalStyle />
       </AppWrapper>
     );
