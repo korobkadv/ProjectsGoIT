@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ProjectsGoIT/static/css/main.cd2e038f.css",
+    "main.js": "/ProjectsGoIT/static/js/main.635b5700.js",
+    "index.html": "/ProjectsGoIT/index.html",
+    "main.cd2e038f.css.map": "/ProjectsGoIT/static/css/main.cd2e038f.css.map",
+    "main.635b5700.js.map": "/ProjectsGoIT/static/js/main.635b5700.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cd2e038f.css",
+    "static/js/main.635b5700.js"
+  ]
+}
