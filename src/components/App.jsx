@@ -93,7 +93,7 @@ export class App extends Component {
             />
           </Section>
         ) : (
-          'No contacts'
+          'No contacts...'
         )}
 
         <GlobalStyle />
