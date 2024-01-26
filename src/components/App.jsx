@@ -14,14 +14,18 @@ export class App extends Component {
     page: 1,
     allPages: 1,
     isLoading: false,
+    dateQuery: '',
   };
 
   async componentDidUpdate(prevProps, prevState) {
     if (
-      prevState.query !== this.state.query ||
+      prevState.dateQuery !== this.state.dateQuery ||
       prevState.page !== this.state.page
     ) {
-      if (prevState.query !== this.state.query) {
+      if (
+        prevState.query !== this.state.query ||
+        prevState.dateQuery !== this.state.dateQuery
+      ) {
         prevState.images = [];
       }
 
@@ -45,20 +49,19 @@ export class App extends Component {
     }
   }
 
-  onSubmit = evt => {
-    evt.preventDefault();
+  onSubmit = value => {
+    const { searchInput } = value;
 
     this.setState({
       images: [],
       page: 1,
       allPages: 1,
-      query: evt.target[1].value,
+      query: searchInput,
+      dateQuery: new Date(),
     });
   };
 
-  loadMore = evt => {
-    evt.preventDefault();
-
+  loadMore = () => {
     this.setState({
       page: this.state.page + 1,
     });
@@ -72,7 +75,7 @@ export class App extends Component {
         <Main>
           {images.length > 0 && <ImageGallery images={images} />}
           {isLoading && <Loader />}
-          {(page !== allPages) & (images.length > 0) ? (
+          {(page !== allPages) & (images.length > 0) & !isLoading ? (
             <Button title="Load more" loadMore={this.loadMore} />
           ) : (
             ''

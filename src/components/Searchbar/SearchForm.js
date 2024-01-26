@@ -1,23 +1,34 @@
+import { Formik } from 'formik';
 import {
   Form,
   SearchFormButton,
   SearchFormButtonLabel,
-  SearchFormInput,
+  Field,
 } from './SearchForm.styled';
 
 export const SearchForm = ({ onSubmit }) => {
   return (
-    <Form onSubmit={onSubmit}>
-      <SearchFormButton>
-        <SearchFormButtonLabel>Search</SearchFormButtonLabel>
-      </SearchFormButton>
+    <Formik
+      initialValues={{
+        searchInput: '',
+      }}
+      onSubmit={values => {
+        onSubmit(values);
+      }}
+    >
+      <Form>
+        <SearchFormButton>
+          <SearchFormButtonLabel>Search</SearchFormButtonLabel>
+        </SearchFormButton>
 
-      <SearchFormInput
-        type="text"
-        autoComplete="off"
-        autoFocus
-        placeholder="Search images and photos"
-      />
-    </Form>
+        <Field
+          name="searchInput"
+          type="text"
+          autoComplete="off"
+          autoFocus
+          placeholder="Search images and photos"
+        />
+      </Form>
+    </Formik>
   );
 };

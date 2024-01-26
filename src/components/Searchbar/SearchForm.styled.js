@@ -1,6 +1,7 @@
+import { Field as FormikField, Form as FormikForm } from 'formik';
 import styled from 'styled-components';
 
-export const Form = styled.form`
+export const Form = styled(FormikForm)`
   display: flex;
   align-items: center;
   width: 100%;
@@ -8,6 +9,22 @@ export const Form = styled.form`
   background-color: #fff;
   border-radius: 3px;
   overflow: hidden;
+`;
+
+export const Field = styled(FormikField)`
+  display: inline-block;
+  width: 100%;
+  font: inherit;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  padding-left: 4px;
+  padding-right: 4px;
+
+  &::placeholder {
+    font: inherit;
+    font-size: 18px;
+  }
 `;
 
 export const SearchFormButton = styled.button`
@@ -39,20 +56,4 @@ export const SearchFormButtonLabel = styled.span`
   white-space: nowrap;
   clip-path: inset(50%);
   border: 0;
-`;
-
-export const SearchFormInput = styled.input`
-  display: inline-block;
-  width: 100%;
-  font: inherit;
-  font-size: 20px;
-  border: none;
-  outline: none;
-  padding-left: 4px;
-  padding-right: 4px;
-
-  &::placeholder {
-    font: inherit;
-    font-size: 18px;
-  }
 `;
