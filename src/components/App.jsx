@@ -57,7 +57,7 @@ export class App extends Component {
       page: 1,
       allPages: 1,
       query: searchInput,
-      dateQuery: new Date(),
+      dateQuery: Date.now(),
     });
   };
 
@@ -69,13 +69,17 @@ export class App extends Component {
 
   render() {
     const { images, page, allPages, isLoading } = this.state;
+    console.log(this.state);
     return (
       <AppWrapper>
         <Searchbar onSubmit={this.onSubmit} />
         <Main>
           {images.length > 0 && <ImageGallery images={images} />}
           {isLoading && <Loader />}
-          {(page !== allPages) & (images.length > 0) & !isLoading ? (
+          {(allPages > 0) &
+          (page !== allPages) &
+          (images.length > 0) &
+          !isLoading ? (
             <Button title="Load more" loadMore={this.loadMore} />
           ) : (
             ''
