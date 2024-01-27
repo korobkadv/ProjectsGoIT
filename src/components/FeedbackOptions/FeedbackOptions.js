@@ -4,7 +4,7 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <ButtonWrapper>
       {options.map(key => (
-        <Button onClick={onLeaveFeedback} name={key.toLowerCase()} key={key}>
+        <Button onClick={onLeaveFeedback} name={key} key={key}>
           {key}
         </Button>
       ))}
