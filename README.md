@@ -19,28 +19,16 @@
 06. https://github.com/korobkadv/ProjectsGoIT/tree/goit-js-hw-06
 07. https://github.com/korobkadv/ProjectsGoIT/tree/goit-js-hw-07
 08. https://github.com/korobkadv/ProjectsGoIT/tree/goit-js-hw-08
-    - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-hw-js-08
 09. https://github.com/korobkadv/ProjectsGoIT/tree/goit-js-hw-09
-    - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-hw-js-09
 10. https://github.com/korobkadv/ProjectsGoIT/tree/goit-js-hw-10
-    - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-hw-js-10
 11. https://github.com/korobkadv/ProjectsGoIT/tree/goit-js-hw-11
-    - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-hw-js-11
    
 ### React.JS
 01. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-01-components
-    - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-react-hw-01-components
 02. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-02-feedback
-    - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-react-hw-02-feedback
 03. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-02-phonebook
-    - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-react-hw-02-phonebook
 04. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-03-phonebook
-    - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-react-hw-03-phonebook
 05. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-03-image-finder
-    - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-react-hw-03-image-finder
 06. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-04-feedback
-    - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-react-hw-04-feedback
 07. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-04-phonebook
-    - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-react-hw-04-phonebook
 08. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-04-images
-    - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-react-hw-04-images
