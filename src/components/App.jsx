@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { useState, useEffect } from 'react';
 import { GlobalStyle } from './GlobalStyle';
 import { AppWrapper, Main } from './App.styled';
 import { fetchPixabayImages } from 'api';
@@ -7,86 +7,64 @@ import { ImageGallery } from './ImageGallery/ImageGallery';
 import { Loader } from './Loader/Loader';
 import { Button } from './Button/Button';
 
-export class App extends Component {
-  state = {
-    images: [],
-    query: '',
-    page: 1,
-    allPages: 1,
-    isLoading: false,
-    dateQuery: '',
-  };
+export const App = () => {
+  const [images, setImages] = useState([]);
+  const [query, setQuery] = useState('');
+  const [page, setPage] = useState(1);
+  const [allPages, setAllPages] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [dateQuery, setDateQuery] = useState('');
 
-  async componentDidUpdate(prevProps, prevState) {
-    if (
-      prevState.dateQuery !== this.state.dateQuery ||
-      prevState.page !== this.state.page
-    ) {
-      if (
-        prevState.query !== this.state.query ||
-        prevState.dateQuery !== this.state.dateQuery
-      ) {
-        prevState.images = [];
-      }
-
+  useEffect(() => {
+    if (query === '') {
+      return;
+    }
+    async function getImages() {
       try {
-        this.setState({ isLoading: true });
-
-        const initialImages = await fetchPixabayImages(
-          this.state.query,
-          this.state.page
-        );
-
-        this.setState({
-          images: [...prevState.images, ...initialImages.hits],
-          allPages: Math.round(initialImages.totalHits / 20),
-        });
+        setIsLoading(true);
+        const initialImages = await fetchPixabayImages(query, page);
+        setImages(prevState => [...prevState, ...initialImages.hits]);
+        setAllPages(Math.round(initialImages.totalHits / 20));
       } catch (error) {
         console.log(error);
       } finally {
-        this.setState({ isLoading: false });
+        setIsLoading(false);
       }
     }
-  }
 
-  onSubmit = value => {
+    getImages();
+  }, [query, dateQuery, page]);
+
+  const onSubmit = value => {
     const { searchInput } = value;
 
-    this.setState({
-      images: [],
-      page: 1,
-      allPages: 1,
-      query: searchInput,
-      dateQuery: Date.now(),
-    });
+    setImages([]);
+    setQuery(searchInput);
+    setPage(1);
+    setAllPages(1);
+    setDateQuery(Date.now());
   };
 
-  loadMore = () => {
-    this.setState({
-      page: this.state.page + 1,
-    });
+  const loadMore = () => {
+    setPage(prevState => prevState + 1);
   };
 
-  render() {
-    const { images, page, allPages, isLoading } = this.state;
-
-    return (
-      <AppWrapper>
-        <Searchbar onSubmit={this.onSubmit} />
-        <Main>
-          {images.length > 0 && <ImageGallery images={images} />}
-          {isLoading && <Loader />}
-          {(allPages > 0) &
-          (page !== allPages) &
-          (images.length > 0) &
-          !isLoading ? (
-            <Button title="Load more" loadMore={this.loadMore} />
-          ) : (
-            ''
-          )}
-        </Main>
-        <GlobalStyle />
-      </AppWrapper>
-    );
-  }
-}
+  return (
+    <AppWrapper>
+      <Searchbar onSubmit={onSubmit} />
+      <Main>
+        {images.length > 0 && <ImageGallery images={images} />}
+        {isLoading && <Loader />}
+        {(allPages > 0) &
+        (page !== allPages) &
+        (images.length > 0) &
+        !isLoading ? (
+          <Button title="Load more" loadMore={loadMore} />
+        ) : (
+          ''
+        )}
+      </Main>
+      <GlobalStyle />
+    </AppWrapper>
+  );
+};

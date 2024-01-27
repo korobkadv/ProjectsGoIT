@@ -2,7 +2,7 @@ name: Build and deploy to GitHub Pages
 
 on:
   push:
-    branches: [goit-react-hw-03-image-finder]
+    branches: [goit-react-hw-04-image]
 
 jobs:
   build-and-deploy:
@@ -20,5 +20,5 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
-          branch: gh-pages-react-hw-03-image-finder
+          branch: gh-pages-react-hw-04-image
           folder: build
