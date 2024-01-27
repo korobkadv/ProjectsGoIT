@@ -38,3 +38,9 @@
     - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-react-hw-03-phonebook
 05. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-03-image-finder
     - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-react-hw-03-image-finder
+06. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-04-feedback
+    - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-react-hw-04-feedback
+07. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-04-phonebook
+    - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-react-hw-04-phonebook
+08. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-04-images
+    - https://github.com/korobkadv/ProjectsGoIT/tree/gh-pages-react-hw-04-images
