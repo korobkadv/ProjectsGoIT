@@ -12,7 +12,7 @@ const contactsSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too Short!').required('Must not be empty'),
   number: Yup.string()
     .min(9, 'Must be 9 or more')
-    .max(10, 'Must be no more than 10')
+    .max(15, 'Must be no more than 15')
     .required('Must not be empty'),
 });
 
