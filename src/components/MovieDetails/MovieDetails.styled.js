@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 
-export const MovieCard = styled.div`
+export const CardWrapper = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const MovieCard = styled.div`
+  width: 90%;
 `;
 
 export const Image = styled.img`
@@ -28,4 +34,12 @@ export const GenresItem = styled.li`
   &:last-child::after {
     content: '.';
   }
+`;
+
+export const Information = styled.div`
+  width: 100%;
+`;
+
+export const InformationLinksList = styled.ul`
+  padding: ${p => p.theme.spacing(3)};
 `;

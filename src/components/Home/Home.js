@@ -39,7 +39,6 @@ export const Home = () => {
               <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
             </PopularMoviesItem>
           ))}
-        {}
       </PopularMoviesList>
     </div>
   );

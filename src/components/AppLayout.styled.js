@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
+export const Header = styled.header`
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+
+  margin-bottom: ${p => p.theme.spacing(3)};
+`;
+
 export const Layout = styled.div`
   width: 100%;
 
-  padding: ${p => p.theme.spacing(3)};
-  margin: ${p => p.theme.spacing(6)};
+  padding: ${p => p.theme.spacing(7)};
 `;
 
 export const NavigationMenu = styled.ul`
@@ -17,11 +23,4 @@ export const NavigationMenu = styled.ul`
   font-size: 24px;
 
   margin-bottom: ${p => p.theme.spacing(6)};
-`;
-
-export const Header = styled.header`
-  width: 100%;
-  border-bottom: 1px solid #ccc;
-
-  margin-bottom: ${p => p.theme.spacing(3)};
 `;
