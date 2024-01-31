@@ -43,3 +43,15 @@ export const Information = styled.div`
 export const InformationLinksList = styled.ul`
   padding: ${p => p.theme.spacing(3)};
 `;
+
+export const BackLink = styled.b`
+  width: 100px;
+  text-align: center;
+  display: block;
+
+  padding: ${p => p.theme.spacing(2)};
+  margin-bottom: ${p => p.theme.spacing(2)};
+
+  border: 1px solid #ccc;
+  border-radius: ${p => p.theme.spacing(3)};
+`;

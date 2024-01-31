@@ -1,3 +1,9 @@
+import { Movies } from 'components/Movies/Movies';
+
 export default function MoviesPage() {
-  return <div>MoviesPage</div>;
+  return (
+    <div>
+      <Movies />
+    </div>
+  );
 }

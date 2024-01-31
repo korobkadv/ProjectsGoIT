@@ -1,10 +1,10 @@
-import { useState, useEffect, Suspense } from 'react';
+import { useState, useEffect, Suspense, useRef } from 'react';
 import {
-  Link,
   NavLink,
   Outlet,
   useLocation,
   useParams,
+  Link,
 } from 'react-router-dom';
 import { fetchDetailsMovie } from 'api';
 import { Loader } from 'components/Loader/Loader';
@@ -16,6 +16,7 @@ import {
   GenresItem,
   Information,
   InformationLinksList,
+  BackLink,
 } from './MovieDetails.styled';
 
 export const MovieDetails = () => {
@@ -23,6 +24,9 @@ export const MovieDetails = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [fetchStatus, setIsFetchStatus] = useState(false);
   const params = useParams();
+
+  const location = useLocation();
+  const backLinkRef = useRef(location);
 
   useEffect(() => {
     if (fetchStatus) {
@@ -46,6 +50,9 @@ export const MovieDetails = () => {
   return (
     <div>
       {isLoading && <Loader />}
+      <Link to={backLinkRef.current.state?.from ?? '/'}>
+        <BackLink>Back</BackLink>
+      </Link>
       {movieDetails.poster_path && (
         <CardWrapper>
           <MovieCard>

@@ -41,11 +41,11 @@ export default function Reviews() {
                   <b>Author:</b> {review.author}
                 </span>
                 <span>
-                  <b>Rewiew:</b> {review.content}
+                  <b>Review:</b> {review.content}
                 </span>
               </ReviewsItem>
             ))
-          : 'No Rewiews'}
+          : 'We don`t have any reviews for this movie.'}
       </ReviewsList>
     </div>
   );
