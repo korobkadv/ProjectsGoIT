@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { searchMovies } from 'api';
 import { Loader } from 'components/Loader/Loader';
 import { Formik } from 'formik';
+import * as Yup from 'yup';
 import {
   Form,
   SearchFormButton,
@@ -9,6 +10,7 @@ import {
   Field,
   FoundMoviesList,
   FoundMoviesItem,
+  ErrorMessage,
 } from './Movies.styled';
 import { Link, useLocation, useSearchParams } from 'react-router-dom';
 
@@ -20,6 +22,12 @@ export const Movies = () => {
 
   const queryParams = params.get('query') ?? '';
   const location = useLocation();
+
+  const searchSchema = Yup.object().shape({
+    searchInput: Yup.string()
+      .min(3, 'Too Short!')
+      .required('Must not be empty'),
+  });
 
   useEffect(() => {
     if ((query === '') & (queryParams === '')) {
@@ -48,8 +56,9 @@ export const Movies = () => {
     <div>
       <Formik
         initialValues={{
-          searchInput: queryParams !== '' ? queryParams : '',
+          searchInput: params ? queryParams : '',
         }}
+        validationSchema={searchSchema}
         onSubmit={values => {
           params.set('query', values.searchInput);
           setParams(params);
@@ -59,10 +68,6 @@ export const Movies = () => {
       >
         {({ handleChange, values }) => (
           <Form>
-            <SearchFormButton>
-              <SearchFormButtonLabel>Search</SearchFormButtonLabel>
-            </SearchFormButton>
-
             <Field
               name="searchInput"
               type="text"
@@ -72,6 +77,13 @@ export const Movies = () => {
               value={values.searchInput}
               onChange={handleChange}
             />
+            <SearchFormButton>
+              <SearchFormButtonLabel type="submit">
+                Search
+              </SearchFormButtonLabel>
+            </SearchFormButton>
+
+            <ErrorMessage name="searchInput" component="span" />
           </Form>
         )}
       </Formik>

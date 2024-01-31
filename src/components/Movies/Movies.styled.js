@@ -1,19 +1,26 @@
-import { Field as FormikField, Form as FormikForm } from 'formik';
+import {
+  Field as FormikField,
+  Form as FormikForm,
+  ErrorMessage as FormikError,
+} from 'formik';
 import styled from 'styled-components';
 
 export const Form = styled(FormikForm)`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  width: 100%;
-  max-width: 600px;
+  width: 600px;
   background-color: #fff;
   border-radius: 3px;
   overflow: hidden;
+
+  background-color: ${p => p.theme.colors.grey};
 `;
 
 export const Field = styled(FormikField)`
-  display: inline-block;
-  width: 100%;
+  display: block;
+  width: 552px;
+  height: 48px;
   font: inherit;
   font-size: 20px;
   border: none;
@@ -32,6 +39,7 @@ export const SearchFormButton = styled.button`
   width: 48px;
   height: 48px;
   border: 0;
+  background-color: ${p => p.theme.colors.acent2};
   background-image: url('https://cdn.iconscout.com/icon/free/png-512/free-search-1364-458863.png?f=webp&w=256');
   background-size: 40%;
   background-repeat: no-repeat;
@@ -65,4 +73,13 @@ export const FoundMoviesList = styled.ul`
 export const FoundMoviesItem = styled.li`
   font-size: 20px;
   margin: ${p => p.theme.spacing(1)};
+`;
+
+export const ErrorMessage = styled(FormikError)`
+  display: block;
+  background-color: ${p => p.theme.colors.grey};
+  color: ${p => p.theme.colors.error};
+  font-size: 14px;
+
+  padding-top: ${p => p.theme.spacing(1)};
 `;
