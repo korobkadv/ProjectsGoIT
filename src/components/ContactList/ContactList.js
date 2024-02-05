@@ -1,16 +1,31 @@
+import { useSelector } from 'react-redux';
+import { getContacts } from '../../redux/contactsSlise';
+import { getFilters } from '../../redux/filterSlise';
+
 import { Contacts } from './ContactList.styled';
 import { ContactItem } from './ContactItem';
 
-export const ContactList = ({ visibleContacts, onDeleteContact }) => {
+export const ContactList = () => {
+  const contacts = useSelector(getContacts);
+  const filter = useSelector(getFilters);
+
+  const visibleContacts =
+    contacts.length &&
+    contacts.filter(cont =>
+      cont.name.toLowerCase().includes(filter.toLowerCase())
+    );
+
   return (
-    <Contacts>
-      {visibleContacts.map(contact => (
-        <ContactItem
-          key={contact.id}
-          contact={contact}
-          onDeleteContact={onDeleteContact}
-        />
-      ))}
-    </Contacts>
+    <>
+      {visibleContacts.length ? (
+        <Contacts>
+          {visibleContacts.map(contact => (
+            <ContactItem key={contact.id} contact={contact} />
+          ))}
+        </Contacts>
+      ) : (
+        <p>No contacts according to your search!</p>
+      )}
+    </>
   );
 };

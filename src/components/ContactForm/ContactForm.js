@@ -1,3 +1,5 @@
+import { useDispatch } from 'react-redux';
+import { addContacts } from '../../redux/contactsSlise';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -16,7 +18,9 @@ const contactsSchema = Yup.object().shape({
     .required('Must not be empty'),
 });
 
-export const ContactForm = ({ onAddContact }) => {
+export const ContactForm = () => {
+  const dispatch = useDispatch();
+
   return (
     <Formik
       initialValues={{
@@ -25,10 +29,8 @@ export const ContactForm = ({ onAddContact }) => {
       }}
       validationSchema={contactsSchema}
       onSubmit={(values, actions) => {
-        const hasAlready = onAddContact(values);
-        if (hasAlready !== 'hasAlready') {
-          actions.resetForm();
-        }
+        dispatch(addContacts(values));
+        actions.resetForm();
       }}
     >
       <Form>
