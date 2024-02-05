@@ -33,3 +33,4 @@
 07. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-04-phonebook
 08. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-04-images
 09. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-05-movies
+10. https://github.com/korobkadv/ProjectsGoIT/tree/goit-react-hw-06-phonebook
