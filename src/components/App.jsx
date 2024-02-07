@@ -10,6 +10,7 @@ import { AppWrapper } from './App.styled';
 
 export const App = () => {
   const contacts = useSelector(getContacts);
+
   return (
     <AppWrapper>
       <Section title="Phonebook Redux">
