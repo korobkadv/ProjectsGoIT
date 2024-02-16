@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { addContacts } from '../../redux/contactsSlise';
+import { addContact } from '../../redux/operations';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -12,7 +12,7 @@ import {
 
 const contactsSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too Short!').required('Must not be empty'),
-  number: Yup.string()
+  phone: Yup.string()
     .min(9, 'Must be 9 or more')
     .max(15, 'Must be no more than 15')
     .required('Must not be empty'),
@@ -25,11 +25,11 @@ export const ContactForm = () => {
     <Formik
       initialValues={{
         name: '',
-        number: '',
+        phone: '',
       }}
       validationSchema={contactsSchema}
       onSubmit={(values, actions) => {
-        dispatch(addContacts(values));
+        dispatch(addContact(values));
         actions.resetForm();
       }}
     >
@@ -41,8 +41,8 @@ export const ContactForm = () => {
         </FormGroup>
         <FormGroup>
           Number
-          <Field name="number" />
-          <ErrorMessage name="number" component="span" />
+          <Field name="phone" />
+          <ErrorMessage name="phone" component="span" />
         </FormGroup>
 
         <Button type="submit" name="add">
