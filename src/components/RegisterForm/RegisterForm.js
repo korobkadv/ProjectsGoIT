@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contacts/operations';
+import { register } from '../../redux/auth/operations';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -8,45 +8,54 @@ import {
   FormGroup,
   Field,
   ErrorMessage,
-} from './ContactForm.styled';
+} from './RegisterForm.styled';
 
 const contactsSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too Short!').required('Must not be empty'),
-  phone: Yup.string()
-    .min(9, 'Must be 9 or more')
+  email: Yup.string()
+    .email('Enter valid email address')
+    .required('Must not be empty'),
+  password: Yup.string()
+    .min(7, 'Must be 7 or more')
     .max(15, 'Must be no more than 15')
     .required('Must not be empty'),
 });
 
-export const ContactForm = () => {
+export const RegisterForm = () => {
   const dispatch = useDispatch();
 
   return (
     <Formik
       initialValues={{
         name: '',
-        phone: '',
+        email: '',
+        password: '',
       }}
       validationSchema={contactsSchema}
       onSubmit={(values, actions) => {
-        dispatch(addContact(values));
+        dispatch(register(values));
         actions.resetForm();
       }}
     >
       <Form>
         <FormGroup>
-          Name
+          Username
           <Field name="name" />
           <ErrorMessage name="name" component="span" />
         </FormGroup>
         <FormGroup>
-          Number
-          <Field name="phone" />
-          <ErrorMessage name="phone" component="span" />
+          Email
+          <Field name="email" type="email" />
+          <ErrorMessage name="email" component="span" />
+        </FormGroup>
+        <FormGroup>
+          Password
+          <Field name="password" type="password" />
+          <ErrorMessage name="password" component="span" />
         </FormGroup>
 
-        <Button type="submit" name="add">
-          Add contact
+        <Button type="submit" name="register">
+          Register
         </Button>
       </Form>
     </Formik>

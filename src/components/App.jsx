@@ -1,17 +1,29 @@
-import { lazy } from 'react';
+import { useEffect, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-
+import { useDispatch } from 'react-redux';
 import { Layout } from './Layout';
-
+import { Loader } from './Loader/Loader';
+import { useAuth } from '../hooks';
+import { refreshUser } from '../redux/auth/operations';
 import { GlobalStyle } from './GlobalStyle';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const RegisterPage = lazy(() => import('../pages/Register'));
-// const LoginPage = lazy(() => import('../pages/Login'));
+const LoginPage = lazy(() => import('../pages/Login'));
 const ContactsPage = lazy(() => import('../pages/Contacts'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 export const App = () => {
-  return (
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <Loader />
+  ) : (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -26,12 +38,13 @@ export const App = () => {
               // />
             }
           />
-          {/* <Route
+          <Route
             path="/login"
             element={
-              <RestrictedRoute redirectTo="/tasks" component={<LoginPage />} />
+              <LoginPage />
+              // <RestrictedRoute redirectTo="/tasks" component={<LoginPage />} />
             }
-          /> */}
+          />
           <Route
             path="/contacts"
             element={
@@ -40,6 +53,7 @@ export const App = () => {
             }
           />
         </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
       {/* {isLoading && !error && <Loader />} */}
