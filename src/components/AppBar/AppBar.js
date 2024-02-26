@@ -9,9 +9,13 @@ export const AppBar = () => {
 
   return (
     <Header>
-      <h1>Phonebook</h1>
-      <Navigation />
-      {isLoggedIn ? <UserMenu /> : <AuthNav />}
+      <div>
+        <h1>Phonebook</h1>
+      </div>
+      <div>
+        <Navigation />
+      </div>
+      <div>{isLoggedIn ? <UserMenu /> : <AuthNav />}</div>
     </Header>
   );
 };

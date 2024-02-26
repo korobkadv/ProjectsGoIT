@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux';
 import { Layout } from './Layout';
 import { Loader } from './Loader/Loader';
 import { useAuth } from '../hooks';
+import { PrivateRoute } from './PrivateRoute';
+import { RestrictedRoute } from './RestrictedRoute';
 import { refreshUser } from '../redux/auth/operations';
 import { GlobalStyle } from './GlobalStyle';
 
@@ -31,29 +33,29 @@ export const App = () => {
           <Route
             path="/register"
             element={
-              <RegisterPage />
-              // <RestrictedRoute
-              //   redirectTo="/tasks"
-              //   component={<RegisterPage />}
-              // />
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<RegisterPage />}
+              />
             }
           />
           <Route
             path="/login"
             element={
-              <LoginPage />
-              // <RestrictedRoute redirectTo="/tasks" component={<LoginPage />} />
+              <RestrictedRoute
+                redirectTo="/contacts"
+                component={<LoginPage />}
+              />
             }
           />
           <Route
             path="/contacts"
             element={
-              <ContactsPage />
-              // <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+              <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
             }
           />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
-        <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
       {/* {isLoading && !error && <Loader />} */}

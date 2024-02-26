@@ -12,7 +12,7 @@ import {
 
 const contactsSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too Short!').required('Must not be empty'),
-  phone: Yup.string()
+  number: Yup.string()
     .min(9, 'Must be 9 or more')
     .max(15, 'Must be no more than 15')
     .required('Must not be empty'),
@@ -25,7 +25,7 @@ export const ContactForm = () => {
     <Formik
       initialValues={{
         name: '',
-        phone: '',
+        number: '',
       }}
       validationSchema={contactsSchema}
       onSubmit={(values, actions) => {
@@ -41,8 +41,8 @@ export const ContactForm = () => {
         </FormGroup>
         <FormGroup>
           Number
-          <Field name="phone" />
-          <ErrorMessage name="phone" component="span" />
+          <Field name="number" />
+          <ErrorMessage name="number" component="span" />
         </FormGroup>
 
         <Button type="submit" name="add">

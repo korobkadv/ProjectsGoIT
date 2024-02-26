@@ -3,8 +3,6 @@ import axios from 'axios';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { selectContacts } from './selectors';
 
-axios.defaults.baseURL = 'https://65cf583ebdb50d5e5f5b1411.mockapi.io';
-
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkAPI) => {
@@ -20,7 +18,7 @@ export const fetchContacts = createAsyncThunk(
 export const addContact = createAsyncThunk(
   'contacts/addContact',
   async (contact, thunkAPI) => {
-    const { name, phone } = contact;
+    const { name, number } = contact;
 
     if (selectContacts(thunkAPI.getState()).find(cont => cont.name === name)) {
       Notify.failure('A contact with the same name already exists!');
@@ -30,7 +28,7 @@ export const addContact = createAsyncThunk(
     }
 
     try {
-      const response = await axios.post(`/contacts`, { name, phone });
+      const response = await axios.post(`/contacts`, { name, number });
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
