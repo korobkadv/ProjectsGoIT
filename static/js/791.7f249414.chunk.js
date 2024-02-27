@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkreact_homework_template=self.webpackChunkreact_homework_template||[]).push([[791],{6791:function(e,r,t){t.r(r),t.d(r,{default:function(){return s}});var n=t(1087),o=t(3050),l=t(184);function s(){return(0,l.jsxs)("div",{children:[(0,l.jsx)(o.ql,{children:(0,l.jsx)("title",{children:"Phonebook - 404 page not found!"})}),"Sorry! Error! Please use this ",(0,l.jsx)(n.rU,{to:"/",children:"link"})]})}}}]);
+//# sourceMappingURL=791.7f249414.chunk.js.map
