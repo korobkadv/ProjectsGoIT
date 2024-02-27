@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+`;
+
+export const SectionWrapper = styled.div`
   width: 350px;
   background-color: ${p => p.theme.colors.white};
 

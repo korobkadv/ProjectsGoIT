@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Helmet } from 'react-helmet-async';
 import { Loader } from '../components/Loader/Loader';
 import {
   selectContacts,
@@ -12,7 +13,7 @@ import { ContactForm } from '../components/ContactForm/ContactForm';
 import { ContactList } from '../components/ContactList/ContactList';
 import { Filter } from '../components/Filter/Filter';
 
-import { Wrapper } from './Contacts.styled';
+import { Wrapper, SectionWrapper } from './Contacts.styled';
 
 export default function Contacts() {
   const dispatch = useDispatch();
@@ -27,20 +28,26 @@ export default function Contacts() {
 
   return (
     <Wrapper>
-      <Section title="Add contact">
-        <ContactForm />
-      </Section>
-
-      {contacts.length ? (
-        <Section title="Contacts">
-          <Filter />
-          <ContactList />
+      <Helmet>
+        <title>Phonebook - Contacts list</title>
+      </Helmet>
+      <SectionWrapper>
+        <Section title="Add contact">
+          <ContactForm />
         </Section>
-      ) : (
-        <p>No contacts...</p>
-      )}
+      </SectionWrapper>
 
-      {isLoading && !error && <Loader />}
+      <SectionWrapper>
+        {contacts.length ? (
+          <Section title="Contacts">
+            <Filter />
+            <ContactList />
+          </Section>
+        ) : (
+          <p>No contacts...</p>
+        )}
+        {isLoading && !error && <Loader />}
+      </SectionWrapper>
     </Wrapper>
   );
 }

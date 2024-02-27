@@ -35,12 +35,12 @@ export const LoginForm = () => {
       <Form>
         <FormGroup>
           Email
-          <Field name="email" />
+          <Field name="email" type="email" />
           <ErrorMessage name="email" component="span" />
         </FormGroup>
         <FormGroup>
           Password
-          <Field name="password" />
+          <Field name="password" type="password" />
           <ErrorMessage name="password" component="span" />
         </FormGroup>
 

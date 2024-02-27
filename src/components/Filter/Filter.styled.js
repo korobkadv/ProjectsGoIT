@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const FilterInput = styled.input`
-  width: 60%;
+  width: 100%;
 
   padding: ${p => p.theme.spacing(1)};
-  margin: ${p => p.theme.spacing(1)} 0;
+  margin: ${p => p.theme.spacing(2)} 0;
 
   border: 1px solid ${p => p.theme.colors.greyText};
   border-radius: ${p => p.theme.spacing(1)};
