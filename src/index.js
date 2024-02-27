@@ -29,7 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <ThemeProvider theme={theme}>
         <HelmetProvider>
           <PersistGate loading={null} persistor={persistor}>
-            <BrowserRouter basename="/gh-pages-react-hw-08-phonebook">
+            <BrowserRouter basename="/goit-react-hw-08-phonebook">
               <App />
             </BrowserRouter>
           </PersistGate>
